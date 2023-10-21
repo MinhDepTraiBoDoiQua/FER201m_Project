@@ -1,0 +1,258 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "firstName": "Sachin",
+      "lastName": "Tendulkar",
+      "email": "sachin@gmail.com",
+      "username": "sachin",
+      "password": "sachin",
+      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "status": "1",
+      "user_type": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Virat",
+      "lastName": "Kohli",
+      "email": "virat@gmail.com",
+      "username": "virat",
+      "password": "virat",
+      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "status": "1",
+      "user_type": 2
+    },
+    {
+      "id": 3,
+      "firstName": "Rohit",
+      "lastName": "Sharma",
+      "email": "rohit@gmail.com",
+      "username": "rohit",
+      "password": "rohit",
+      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "status": "1",
+      "user_type": 3
+    },
+    {
+      "id": 4,
+      "firstName": "Pham",
+      "lastName": "Minh",
+      "email": "minh@gmail.com",
+      "username": "minh",
+      "password": "minh",
+      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "status": "1",
+      "user_type": 3
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "account_id": 1
+    }
+  ],
+  "movie-managers": [
+    {
+      "id": 1,
+      "account_id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "account_id": 3
+    },
+    {
+      "id": 2,
+      "account_id": 4
+    }
+  ],
+  "movies": [
+    {
+      "id": "1",
+      "movie_name": "Avengers: Endgame",
+      "movie_description": "The Avengers take a final stand against Thanos in this epic conclusion to the Marvel Cinematic Universe.",
+      "genre": "Action, Adventure, Sci-Fi",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+      "duration": "181",
+      "start_date": "2019-04-26",
+      "end_date": "2019-07-02",
+      "status": "1"
+    },
+    {
+      "id": "2",
+      "movie_name": "The Lion King",
+      "movie_description": "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
+      "genre": "Animation, Adventure, Drama",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_FMjpg_UX1000_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=4CbLXeGSDxg",
+      "duration": "118",
+      "start_date": "2019-07-19",
+      "end_date": "2019-09-25",
+      "status": "1"
+    },
+    {
+      "id": "3",
+      "movie_name": "Joker",
+      "movie_description": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime.",
+      "genre": "Crime, Drama, Thriller",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=zAGVQLHvwOY",
+      "duration": "122",
+      "start_date": "2019-10-04",
+      "end_date": "2019-12-10",
+      "status": "1"
+    },
+    {
+      "id": "4",
+      "movie_name": "Frozen II",
+      "movie_description": "Anna, Elsa, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient, autumn-bound forest of an enchanted land. They set out to find the origin of Elsa's powers in order to save their kingdom.",
+      "genre": "Animation, Adventure, Comedy",
+      "cover_image_path": "https://cdn.kobo.com/book-images/fa31d5ce-f0ad-49d0-a618-ed25540a5f85/1200/1200/False/frozen-2-welcome-home.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=bwzLiQZDw2I",
+      "duration": "103",
+      "start_date": "2019-11-22",
+      "end_date": "2020-01-28",
+      "status": "1"
+    },
+    {
+      "id": "5",
+      "movie_name": "Spider-Man: Far From Home",
+      "movie_description": "Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.",
+      "genre": "Action, Adventure, Sci-Fi",
+      "cover_image_path": "https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=Nt9L1jCKGnE",
+      "duration": "129",
+      "start_date": "2019-07-02",
+      "end_date": "2019-09-08",
+      "status": "1"
+    },
+    {
+      "id": "6",
+      "movie_name": "Toy Story 4",
+      "movie_description": "When a new toy called \"Forky\" joins Woody and the gang, a road trip alongside old and new friends reveals how big the world can be for a toy.",
+      "genre": "Animation, Adventure, Comedy",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@._V1_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=wmiIUN-7qhE",
+      "duration": "100",
+      "start_date": "2019-06-21",
+      "end_date": "2019-08-27",
+      "status": "1"
+    },
+    {
+      "id": "7",
+      "movie_name": "Captain Marvel",
+      "movie_description": "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.",
+      "genre": "Action, Adventure, Sci-Fi",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=Z1BCujX3pw8",
+      "duration": "123",
+      "start_date": "2019-03-08",
+      "end_date": "2019-05-14",
+      "status": "1"
+    },
+    {
+      "id": "8",
+      "movie_name": "The Irishman",
+      "movie_description": "A mob hitman recalls his possible involvement with the slaying of Jimmy Hoffa.",
+      "genre": "Biography, Crime, Drama",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=WHXxVmeGQUc",
+      "duration": "209",
+      "start_date": "2019-11-01",
+      "end_date": "2019-12-07",
+      "status": "1"
+    },
+    {
+      "id": "9",
+      "movie_name": "Aladdin",
+      "movie_description": "A kind-hearted street urchin and a power-hungry Grand Vizier vie for a magic lamp that has the power to make their deepest wishes come true.",
+      "genre": "Adventure, Family, Fantasy",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMjQ2ODIyMjY4MF5BMl5BanBnXkFtZTgwNzY4ODI2NzM@._V1_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=foyufD52aog",
+      "duration": "128",
+      "start_date": "2019-05-24",
+      "end_date": "2019-07-30",
+      "status": "1"
+    },
+    {
+      "id": "10",
+      "movie_name": "Jumanji: The Next Level",
+      "movie_description": "In Jumanji: The Next Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the world's most dangerous game.",
+      "genre": "Action, Adventure, Comedy",
+      "cover_image_path": "https://m.media-amazon.com/images/M/MV5BOTVjMmFiMDUtOWQ4My00YzhmLWE3MzEtODM1NDFjMWEwZTRkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+      "trailer_link": "https://www.youtube.com/watch?v=rBxcF-r9Ibs",
+      "duration": "123",
+      "start_date": "2019-12-13",
+      "end_date": "2020-02-18",
+      "status": "1"
+    },
+    {
+      "movie_name": "Đất rừng phương nam",
+      "movie_description": "Đất rừng phương Nam (tựa tiếng Anh: Song of the South) là một bộ phim điện ảnh Việt Nam thuộc thể loại sử thi – tâm lý – chính kịch ra mắt vào năm 2023, được dựa trên cuốn tiểu thuyết cùng tên của nhà văn Đoàn Giỏi và bộ phim truyền hình Đất phương Nam vào năm 1997.",
+      "genre": "Action, Adventure",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2F4fef0809-9dea-48d6-a546-56047151f141?alt=media&token=c72def8f-a258-483b-bfa3-591020dc8db0",
+      "trailer_link": "https://youtu.be/hktzirCnJmQ",
+      "duration": "120",
+      "start_date": "2023-10-19",
+      "end_date": "2023-10-20",
+      "status": "1",
+      "id": "Vd0zaxu"
+    },
+    {
+      "movie_name": "Năm đêm kinh hoàng",
+      "movie_description": "Nhân viên bảo vệ Mike bắt đầu làm việc tại Freddy Fazbear's Pizza. Trong đêm làm việc đầu tiên, anh nhận ra mình sẽ không dễ gì vượt qua được ca đêm ở đây. Chẳng mấy chốc, anh sẽ vén màn sự thật đã xảy ra tại Freddy's.",
+      "genre": "Horror",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2F585ba1e3-211b-46fd-b4e1-a22767a735a3?alt=media&token=99d49169-7fe7-4702-9502-b30999b9ae5e",
+      "trailer_link": "https://youtu.be/J7XVzwEdUNw",
+      "duration": "110",
+      "start_date": "2023-10-20",
+      "end_date": "2023-10-24",
+      "status": "1",
+      "id": "ParIkpm"
+    },
+    {
+      "movie_name": "Kị sĩ bóng đêm",
+      "movie_description": "<p><span style=\"color: rgb(34, 34, 34);font-size: 14px;background-color: rgb(253, 252, 240)\"><strong>Kị Sĩ Bóng Đêm</strong> mở đầu bằng cuộc oanh tạc của Joker tại ngân hàng thành phố Gotham. Hắn gài bẫy nhóm cướp và rời đi một mình cùng số tiền khổng lồ. Trong khi đó, Batman, công tố viên Harvey Dent cùng ủy viên James Gordon liên minh và đưa ra sắc lệnh chống tội phạm trong thành phố. Tuy nhiên, Joker với tính cách điên loạn vẫn không dừng lại, hắn bắt đầu thâu tóm các băng đảng tội phạm và gây ra các cuộc thanh trừng người vô tội để vạch trần danh tính Batman, từng bước đẩy người hùng bóng đêm và các cộng sự vào những cái bẫy vô cùng tinh vi.</span></p><p>​<br></p>",
+      "genre": "Action",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmoives%2Ff77916c0-f85c-43cb-bf56-36b7011b9e4b?alt=media&token=46cb9f75-906f-40a2-a346-fe7f12c910ab",
+      "trailer_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration": "152",
+      "start_date": "2023-10-24",
+      "end_date": "2023-10-26",
+      "status": "1",
+      "id": "eBXWMg0"
+    }
+  ],
+  "theaters": [
+    {
+      "id": "1",
+      "theater_name": "CGV Vincom Center Bà Triệu",
+      "location": "Hà Nội",
+      "theater_image_path": "https://www.cgv.vn/media/site/cache/1/980x415/b58515f018eb873dafa430b6f9ae0c1e/c/g/cgv_tra_vinh_v1_170304_15.jpg",
+      "status": "1"
+    },
+    {
+      "id": "2",
+      "theater_name": "CGV Hồ Gươm Plaza",
+      "location": "Hà Nội",
+      "theater_image_path": "https://www.cgv.vn/media/site/cache/1/980x415/b58515f018eb873dafa430b6f9ae0c1e/k/l/klg_4105.jpg",
+      "status": "1"
+    },
+    {
+      "id": "3",
+      "theater_name": "CGV Aeon Long Biên",
+      "location": "Hà Nội",
+      "theater_image_path": "https://www.cgv.vn/media/site/cache/1/980x415/b58515f018eb873dafa430b6f9ae0c1e/p/o/popcorn_pactory_layer-1.jpg",
+      "status": "1"
+    },
+    {
+      "theater_name": "CGV Vincom Đà Nẵng",
+      "location": "Đà Nẵng",
+      "theater_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Ftheaters%2F2bf39dd4-931c-4553-b78b-67352b894ab3?alt=media&token=96c4054b-63c4-4df2-a045-9598676a8f20",
+      "status": "1",
+      "id": "ORZAKU7"
+    }
+  ]
+}

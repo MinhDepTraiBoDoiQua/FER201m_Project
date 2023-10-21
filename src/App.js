@@ -1,25 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from './components/admin/template/Sidebar';
+import Topbar from './components/admin/template/Topbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+    MovieManage,
+    MovieCreate,
+    MovieEdit,
+    MovieDelete,
+} from './components/admin/Movie';
+import {
+    TheaterManage,
+    TheaterCreate,
+    TheaterEdit,
+    TheaterDelete,
+} from './components/admin/Theater';
+import Footer from './components/admin/template/Footer';
+import Welcome from './components/admin/template/Welcome';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div id="page-top">
+            <BrowserRouter>
+                <div id="wrapper">
+                    <Sidebar />
+                    <div id="content-wrapper" className="d-flex flex-column">
+                        <div id="content">
+                            <Topbar />
+                            <Routes>
+                                {/* Welcome */}
+                                <Route path="/" element={<Welcome />} />
+
+                                {/* Movie Manage */}
+                                <Route
+                                    path="/movie-manage"
+                                    element={<MovieManage />}
+                                />
+                                <Route
+                                    path="/movie-manage/create"
+                                    element={<MovieCreate />}
+                                />
+                                <Route
+                                    path="/movie-manage/edit/:id"
+                                    element={<MovieEdit />}
+                                />
+                                <Route
+                                    path="/movie-manage/delete/:id"
+                                    element={<MovieDelete />}
+                                />
+
+                                {/* Theater Manage */}
+                                <Route
+                                    path="/theater-manage"
+                                    element={<TheaterManage />}
+                                />
+                                <Route
+                                    path="/theater-manage/create"
+                                    element={<TheaterCreate />}
+                                />
+                                <Route
+                                    path="/theater-manage/edit/:id"
+                                    element={<TheaterEdit />}
+                                />
+                                <Route
+                                    path="/theater-manage/delete/:id"
+                                    element={<TheaterDelete />}
+                                />
+                            </Routes>
+                        </div>
+                        <Footer />
+                    </div>
+                </div>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
