@@ -15,7 +15,7 @@ import CustomEditor from './template/SunEditor';
 
 const MovieManage = () => {
     const [movies, setMovies] = useState([]);
-    const [dataLoaded, setDataLoaded] = useState(false); // Biến để kiểm tra dữ liệu đã tải xong chưa
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:3000/movies')
@@ -133,11 +133,19 @@ const MovieCreate = () => {
 
     const handleInputChange = e => {
         e.persist();
-        setMovie({ ...movie, [e.target.name]: e.target.value });
+        if (e.target.name !== 'movie_description') {
+            setMovie(prevMovie => ({
+                ...prevMovie,
+                [e.target.name]: e.target.value,
+            }));
+        }
     };
 
     const handleInputSunEditorChange = content => {
-        setMovie({ ...movie, movie_description: content });
+        setMovie(prevMovie => ({
+            ...prevMovie,
+            movie_description: content,
+        }));
     };
 
     const handleSubmit = async e => {
@@ -216,7 +224,6 @@ const MovieCreate = () => {
                                     onChange={handleInputSunEditorChange}
                                     setContents={movie.movie_description}
                                     placeholder="Please type here..."
-                                    s
                                 />
                             </div>
                             <div className="form-group mb-4 col-md-6">
@@ -404,15 +411,27 @@ const MovieEdit = () => {
             let oldMovie = { ...movie };
             setDataLoaded(false);
             if (img) {
-                const imgRef = ref(storage, `uploads/moives/${v4()}`);
+                const imgRef = ref(storage, `uploads/movies/${v4()}`);
                 await uploadBytes(imgRef, img);
                 const imgUrl = await getDownloadURL(imgRef);
                 updatedMovie = { ...movie, cover_image_path: imgUrl };
-            }
 
-            if (oldMovie.cover_image_path) {
-                const oldImgRef = ref(storage, oldMovie.cover_image_path);
-                await deleteObject(oldImgRef);
+                try {
+                    const oldImgRef = ref(storage, oldMovie.cover_image_path);
+                    await deleteObject(oldImgRef);
+                } catch (error) {
+                    if (error.code === 'storage/object-not-found') {
+                        console.log(
+                            'Image not found in Firebase Storage. No action taken.'
+                        );
+                    } else {
+                        // Handle other errors, if any
+                        console.error(
+                            'Error checking or deleting image:',
+                            error
+                        );
+                    }
+                }
             }
 
             fetch(`http://localhost:3000/movies/${id}`, {
@@ -480,7 +499,6 @@ const MovieEdit = () => {
                                     onChange={handleInputSunEditorChange}
                                     setContents={movie.movie_description}
                                     placeholder="Please type here..."
-                                    s
                                 />
                             </div>
                             <div className="form-group mb-4 col-md-6">

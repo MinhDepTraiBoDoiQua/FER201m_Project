@@ -303,14 +303,14 @@ const TheaterEdit = () => {
                 await uploadBytes(imgRef, img);
                 const imgUrl = await getDownloadURL(imgRef);
                 updatedTheater = { ...theater, theater_image_path: imgUrl };
-            }
 
-            if (oldTheaterData.theater_image_path) {
-                const oldImgRef = ref(
-                    storage,
-                    oldTheaterData.theater_image_path
-                );
-                await deleteObject(oldImgRef);
+                if (oldTheaterData.theater_image_path) {
+                    const oldImgRef = ref(
+                        storage,
+                        oldTheaterData.theater_image_path
+                    );
+                    await deleteObject(oldImgRef);
+                }
             }
 
             fetch(`http://localhost:3000/theaters/${id}`, {
