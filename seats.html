@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anime | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html">
+                            <img src="img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Homepage</a></li>
+                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a href="./categories.html">Categories</a></li>
+                                        <li><a href="./anime-details.html">Anime Details</a></li>
+                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                        <li><a href="./signup.html">Sign Up</a></li>
+                                        <li><a href="./login.html">Login</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./blog.html">Our Blog</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                        <a href="./login.html"><span class="icon_profile"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./categories.html">Categories</a>
+                        <a href="#">Romance</a>
+                        <span>Fate Stay Night: Unlimited Blade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Anime Section Begin -->
+    <section class="anime-details spad">
+        <div class="container cinema-container">
+            <div class="cinema-container">
+                <div class="cinema">
+                    <div class="screen">Screen</div>
+                    <div class="seats">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="left-seats" id="leftSeats">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="right-seats" id="rightSeats">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function generateSeats() {
+                        const leftSeats = document.getElementById("leftSeats");
+                        const rightSeats = document.getElementById("rightSeats");
+
+                        const totalRows = 5;
+                        const seatsPerRow = 20; // Số ghế mỗi hàng
+                        const seatsPerSide = seatsPerRow / 2; // Số ghế bên trái và bên phải
+
+                        let seatNumber = 1;
+                        let currentRow = 'A';
+
+                        for (let i = 1; i <= totalRows; i++) {
+                            for (let j = 1; j <= seatsPerRow; j++) {
+                                const seat = document.createElement("a");
+                                seat.textContent = `${currentRow}${seatNumber}`;
+
+                                if ((j >= 4 && j <= 7) || (j >= 14 && j <= 17)) {
+                                    if (currentRow !== 'A' && currentRow !== 'E') {
+                                        seat.id = "vip";
+                                    }
+                                }
+                                if (j >= 1 && j <= 3) {
+                                    if (currentRow === 'B') {
+                                        seat.id = "buyed";
+                                    }
+                                }
+
+                                if (j <= seatsPerSide) {
+                                    leftSeats.appendChild(seat);
+                                } else {
+                                    rightSeats.appendChild(seat);
+                                }
+                                seatNumber++;
+
+                                if (seatNumber > seatsPerRow) {
+                                    seatNumber = 1;
+                                    currentRow = String.fromCharCode(currentRow.charCodeAt(0) + 1);
+                                }
+                            }
+                        }
+                    }
+
+                    generateSeats();
+                </script>
+            </div>
+        </div>
+        <div class="container" style="width: 40%;">
+            <div class="seat-types">
+                <ul>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <li>
+                                <div id="normal" class="seat-type">
+                                </div>
+                                <div class="seat-type-text">
+                                    <p>Normal</p>
+                                </div>
+                            </li>
+                        </div>
+                        <div class="col-lg-3">
+                            <li>
+                                <div id="vip" class="seat-type"></div>
+                                <div class="seat-type-text">
+                                    <p>Vip</p>
+                                </div>
+                            </li>
+                        </div>
+                        <div class="col-lg-3">
+                            <li>
+                                <div id="chosing" class="seat-type"></div>
+                                <div class="seat-type-text">
+                                    <p>Chosing</p>
+                                </div>
+                            </li>
+                        </div>
+                        <div class="col-lg-3">
+                            <li>
+                                <div id="buyed" class="seat-type"></div>
+                                <div class="seat-type-text">
+                                    <p>Buyed</p>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            // Danh sách các ghế đã chọn
+            const selectedSeats = [];
+
+            // Lấy tất cả các ghế
+            const seats = document.querySelectorAll('.seats a');
+
+            seats.forEach(seat => {
+                seat.addEventListener('click', () => {
+                    const seatNumber = seat.textContent;
+
+                    // Kiểm tra xem ghế đã được chọn chưa
+                    if (selectedSeats.includes(seatNumber)) {
+                        // Nếu đã được chọn, hủy chọn ghế
+                        selectedSeats.splice(selectedSeats.indexOf(seatNumber), 1);
+                        seat.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                    } else {
+                        if (seat.id === 'buyed') {
+                            return;
+                        }
+                        // Nếu chưa được chọn, thêm vào danh sách
+                        selectedSeats.push(seatNumber);
+                        seat.style.backgroundColor = '#323232';
+                    }
+
+                    // Cập nhật thông tin ghế và tổng giá trị
+                    const seatInfo = selectedSeats.join(', ');
+                    const totalAmount = selectedSeats.length * 170; // Giá của mỗi ghế là 170000 VND
+
+                    // Hiển thị thông tin ghế và tổng giá trị
+                    const seatDisplay = document.querySelector('.anime__details__title h3');
+                    const totalDisplay = document.querySelector('.total-price h3');
+
+                    seatDisplay.textContent = `${seatInfo}`;
+                    totalDisplay.textContent = `${totalAmount}` + '.000 VND';
+                });
+            });
+        </script>
+        <div class="container" style="margin-top: 40px;">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="login__register">
+                        <div class="anime__details__title">
+                            <span>Seat:</span>
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3 style="color: white;"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="login__register">
+                        <div class="anime__details__title  total-price">
+                            <span>Total:</span>
+                            <div style="display: flex; justify-content: space-between;">
+                                <h3 style="color: white;">0.000 VND</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="anime__details__btn" style="padding-top: 15px;">
+                        <a href="#" class="follow-btn" style="width: 200px; text-align: center;"></i> Back</a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="anime__details__btn" style="padding-top: 15px;">
+                        <a href="#" class="follow-btn"></i> Proceed Payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Anime Section End -->
+
+    <!-- < !--Footer Section Begin-->
+    <footer class="footer">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer__nav">
+                        <ul>
+                            <li class="active"><a href="./index.html">Homepage</a></li>
+                            <li><a href="./categories.html">Categories</a></li>
+                            <li><a href="./blog.html">Our Blog</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                        template
+                        is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                            target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
