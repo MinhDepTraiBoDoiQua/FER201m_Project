@@ -13,6 +13,7 @@ import {
     TheaterEdit,
     TheaterDelete,
 } from './components/admin/Theater';
+import { CinemaManage, CinemaCreate } from './components/admin/Cinema';
 import Footer from './components/admin/template/Footer';
 import Welcome from './components/admin/template/Welcome';
 
@@ -63,6 +64,16 @@ function App() {
                                 <Route
                                     path="/theater-manage/delete/:id"
                                     element={<TheaterDelete />}
+                                />
+
+                                {/* Cinema Manage */}
+                                <Route
+                                    path="/cinema-manage"
+                                    element={<CinemaManage />}
+                                />
+                                <Route
+                                    path="/cinema-manage/create"
+                                    element={<CinemaCreate />}
                                 />
                             </Routes>
                         </div>

@@ -117,6 +117,7 @@ const MovieManage = () => {
 
 const MovieCreate = () => {
     const [img, setImg] = useState(null);
+    const [imgBanner, setImgBanner] = useState(null);
     const [movie, setMovie] = useState({
         movie_name: '',
         movie_description: '',
@@ -182,7 +183,40 @@ const MovieCreate = () => {
             }
         } else {
             setDataLoaded(true);
-            window.alert('Please select an image');
+            window.alert('Please select cover image');
+        }
+
+        if (imgBanner) {
+            try {
+                const imgRef = ref(storage, `uploads/movies/${v4()}`);
+                await uploadBytes(imgRef, imgBanner);
+                const imgUrl = await getDownloadURL(imgRef);
+
+                // Set the image URL in your movie data
+                // setMovie({ ...movie, cover_image_path: imgUrl });
+
+                const updatedMovie = { ...movie, banner_image_path: imgUrl };
+
+                // Continue with the rest of your form submission logic
+                await fetch('http://localhost:3000/movies', {
+                    method: 'POST',
+                    body: JSON.stringify(updatedMovie),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log(json);
+                        setDataLoaded(true);
+                        window.location.href = '/movie-manage';
+                    });
+            } catch (error) {
+                window.alert('Error uploading image:', error);
+            }
+        } else {
+            setDataLoaded(true);
+            window.alert('Please select banner image');
         }
     };
 
@@ -317,7 +351,8 @@ const MovieCreate = () => {
                                     id="input-movie-image"
                                 />
                             </div>
-                            <div className="form-group mb-4 col-md-12">
+
+                            <div className="form-group mb-4 col-md-6">
                                 <label htmlFor="input-movie-status">
                                     Status
                                     <span style={{ color: 'red' }}>*</span>
@@ -333,6 +368,21 @@ const MovieCreate = () => {
                                     <option value="1">Show</option>
                                     <option value="0">Hide</option>
                                 </select>
+                            </div>
+                            <div className="form-group mb-4 col-md-6">
+                                <label htmlFor="input-movie-banner-image">
+                                    Banner Image
+                                    <span style={{ color: 'red' }}>*</span>
+                                </label>
+                                <input
+                                    type="file"
+                                    name="banner_image_path"
+                                    onChange={e =>
+                                        setImgBanner(e.target.files[0])
+                                    }
+                                    className="form-control-file"
+                                    id="input-movie-banner-image"
+                                />
                             </div>
                             <div className="col-md-6 mb-4 d-flex justify-content-end">
                                 <button
@@ -374,6 +424,7 @@ const MovieEdit = () => {
         movie_description: '',
         genre: '',
         cover_image_path: '',
+        banner_image_path: '',
         trailer_link: '',
         duration: '',
         start_date: '',
@@ -393,6 +444,7 @@ const MovieEdit = () => {
     }, [id]);
 
     const [img, setImg] = useState(null);
+    const [imgBanner, setImgBanner] = useState(null);
 
     const handleInputChange = e => {
         e.persist();
@@ -418,6 +470,30 @@ const MovieEdit = () => {
 
                 try {
                     const oldImgRef = ref(storage, oldMovie.cover_image_path);
+                    await deleteObject(oldImgRef);
+                } catch (error) {
+                    if (error.code === 'storage/object-not-found') {
+                        console.log(
+                            'Image not found in Firebase Storage. No action taken.'
+                        );
+                    } else {
+                        // Handle other errors, if any
+                        console.error(
+                            'Error checking or deleting image:',
+                            error
+                        );
+                    }
+                }
+            }
+
+            if (imgBanner) {
+                const imgRef = ref(storage, `uploads/movies/${v4()}`);
+                await uploadBytes(imgRef, imgBanner);
+                const imgUrl = await getDownloadURL(imgRef);
+                updatedMovie = { ...updatedMovie, banner_image_path: imgUrl };
+
+                try {
+                    const oldImgRef = ref(storage, oldMovie.banner_image_path);
                     await deleteObject(oldImgRef);
                 } catch (error) {
                     if (error.code === 'storage/object-not-found') {
@@ -469,6 +545,15 @@ const MovieEdit = () => {
                             width="80%"
                             style={{ paddingBottom: '20px' }}
                         />
+                        {movie.banner_image_path && (
+                            <img
+                                src={movie.banner_image_path}
+                                alt="cover movie"
+                                className="rounded mx-auto d-block"
+                                width="80%"
+                                style={{ paddingBottom: '20px' }}
+                            />
+                        )}
                     </div>
                     <div className="col-md-5">
                         <form className="row" onSubmit={handleSubmit}>
@@ -592,7 +677,7 @@ const MovieEdit = () => {
                                     id="input-movie-image"
                                 />
                             </div>
-                            <div className="form-group mb-4 col-md-12">
+                            <div className="form-group mb-4 col-md-6">
                                 <label htmlFor="input-movie-status">
                                     Status
                                     <span style={{ color: 'red' }}>*</span>
@@ -608,6 +693,21 @@ const MovieEdit = () => {
                                     <option value="1">Show</option>
                                     <option value="0">Hide</option>
                                 </select>
+                            </div>
+                            <div className="form-group mb-4 col-md-6">
+                                <label htmlFor="input-movie-banner-image">
+                                    Banner Image
+                                    <span style={{ color: 'red' }}>*</span>
+                                </label>
+                                <input
+                                    type="file"
+                                    name="banner_image_path"
+                                    onChange={e =>
+                                        setImgBanner(e.target.files[0])
+                                    }
+                                    className="form-control-file"
+                                    id="input-movie-banner-image"
+                                />
                             </div>
                             <div className="col-md-6 mb-4 d-flex justify-content-end">
                                 <button

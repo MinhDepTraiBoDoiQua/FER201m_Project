@@ -1,18 +1,20 @@
 {
   "accounts": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "Sachin",
-      "lastName": "Tendulkar",
+      "lastName": "Tendulkard",
       "email": "sachin@gmail.com",
       "username": "sachin",
-      "password": "sachin",
-      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "password": "123",
+      "avatar_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Favatar%2F0b00e9bc-be1e-40e6-9151-412cb7942d12?alt=media&token=123192f0-741e-4275-93e4-0a0b2482f75b",
       "status": "1",
-      "user_type": 1
+      "user_type": "1",
+      "": "123",
+      "newPassword": "123"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Virat",
       "lastName": "Kohli",
       "email": "virat@gmail.com",
@@ -20,10 +22,10 @@
       "password": "virat",
       "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
       "status": "1",
-      "user_type": 2
+      "user_type": "2"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "Rohit",
       "lastName": "Sharma",
       "email": "rohit@gmail.com",
@@ -31,10 +33,10 @@
       "password": "rohit",
       "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
       "status": "1",
-      "user_type": 3
+      "user_type": "3"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Pham",
       "lastName": "Minh",
       "email": "minh@gmail.com",
@@ -42,29 +44,44 @@
       "password": "minh",
       "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
       "status": "1",
-      "user_type": 3
+      "user_type": "3"
+    },
+    {
+      "id": "5",
+      "firstName": "Nguyen",
+      "lastName": "Van",
+      "email": "nguyenvan@gmail.com",
+      "username": "nguyenvan",
+      "password": "nguyenvan",
+      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "status": "1",
+      "user_type": "3"
     }
   ],
   "admins": [
     {
-      "id": 1,
-      "account_id": 1
+      "id": "1",
+      "account_id": "1"
     }
   ],
   "movie-managers": [
     {
-      "id": 1,
-      "account_id": 2
+      "id": "1",
+      "account_id": "2"
     }
   ],
   "users": [
     {
-      "id": 1,
-      "account_id": 3
+      "id": "1",
+      "account_id": "3"
     },
     {
-      "id": 2,
-      "account_id": 4
+      "id": "2",
+      "account_id": "4"
+    },
+    {
+      "id": "3",
+      "account_id": "5"
     }
   ],
   "movies": [
@@ -73,6 +90,7 @@
       "movie_name": "Avengers: Endgame",
       "movie_description": "The Avengers take a final stand against Thanos in this epic conclusion to the Marvel Cinematic Universe.",
       "genre": "Action, Adventure, Sci-Fi",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
       "duration": "181",
@@ -85,6 +103,7 @@
       "movie_name": "The Lion King",
       "movie_description": "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
       "genre": "Animation, Adventure, Drama",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_FMjpg_UX1000_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=4CbLXeGSDxg",
       "duration": "118",
@@ -97,6 +116,7 @@
       "movie_name": "Joker",
       "movie_description": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime.",
       "genre": "Crime, Drama, Thriller",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=zAGVQLHvwOY",
       "duration": "122",
@@ -109,6 +129,7 @@
       "movie_name": "Frozen II",
       "movie_description": "Anna, Elsa, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient, autumn-bound forest of an enchanted land. They set out to find the origin of Elsa's powers in order to save their kingdom.",
       "genre": "Animation, Adventure, Comedy",
+      "banner_image_path": "",
       "cover_image_path": "https://cdn.kobo.com/book-images/fa31d5ce-f0ad-49d0-a618-ed25540a5f85/1200/1200/False/frozen-2-welcome-home.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=bwzLiQZDw2I",
       "duration": "103",
@@ -121,6 +142,7 @@
       "movie_name": "Spider-Man: Far From Home",
       "movie_description": "Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.",
       "genre": "Action, Adventure, Sci-Fi",
+      "banner_image_path": "",
       "cover_image_path": "https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=Nt9L1jCKGnE",
       "duration": "129",
@@ -133,6 +155,7 @@
       "movie_name": "Toy Story 4",
       "movie_description": "When a new toy called \"Forky\" joins Woody and the gang, a road trip alongside old and new friends reveals how big the world can be for a toy.",
       "genre": "Animation, Adventure, Comedy",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@._V1_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=wmiIUN-7qhE",
       "duration": "100",
@@ -145,6 +168,7 @@
       "movie_name": "Captain Marvel",
       "movie_description": "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.",
       "genre": "Action, Adventure, Sci-Fi",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=Z1BCujX3pw8",
       "duration": "123",
@@ -157,6 +181,7 @@
       "movie_name": "The Irishman",
       "movie_description": "A mob hitman recalls his possible involvement with the slaying of Jimmy Hoffa.",
       "genre": "Biography, Crime, Drama",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=WHXxVmeGQUc",
       "duration": "209",
@@ -169,6 +194,7 @@
       "movie_name": "Aladdin",
       "movie_description": "A kind-hearted street urchin and a power-hungry Grand Vizier vie for a magic lamp that has the power to make their deepest wishes come true.",
       "genre": "Adventure, Family, Fantasy",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BMjQ2ODIyMjY4MF5BMl5BanBnXkFtZTgwNzY4ODI2NzM@._V1_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=foyufD52aog",
       "duration": "128",
@@ -181,6 +207,7 @@
       "movie_name": "Jumanji: The Next Level",
       "movie_description": "In Jumanji: The Next Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the world's most dangerous game.",
       "genre": "Action, Adventure, Comedy",
+      "banner_image_path": "",
       "cover_image_path": "https://m.media-amazon.com/images/M/MV5BOTVjMmFiMDUtOWQ4My00YzhmLWE3MzEtODM1NDFjMWEwZTRkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
       "trailer_link": "https://www.youtube.com/watch?v=rBxcF-r9Ibs",
       "duration": "123",
@@ -192,11 +219,12 @@
       "movie_name": "Đất rừng phương nam",
       "movie_description": "Đất rừng phương Nam (tựa tiếng Anh: Song of the South) là một bộ phim điện ảnh Việt Nam thuộc thể loại sử thi – tâm lý – chính kịch ra mắt vào năm 2023, được dựa trên cuốn tiểu thuyết cùng tên của nhà văn Đoàn Giỏi và bộ phim truyền hình Đất phương Nam vào năm 1997.",
       "genre": "Action, Adventure",
+      "banner_image_path": "https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/9/8/980x448_1_-min_2.jpg",
       "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2F4fef0809-9dea-48d6-a546-56047151f141?alt=media&token=c72def8f-a258-483b-bfa3-591020dc8db0",
-      "trailer_link": "https://youtu.be/hktzirCnJmQ",
+      "trailer_link": "https://www.youtube.com/embed/hktzirCnJmQ?si=7E6GQi4qq2gJ5G3M",
       "duration": "120",
-      "start_date": "2023-10-19",
-      "end_date": "2023-10-20",
+      "start_date": "2023-10-21",
+      "end_date": "2023-10-26",
       "status": "1",
       "id": "Vd0zaxu"
     },
@@ -204,25 +232,79 @@
       "movie_name": "Năm đêm kinh hoàng",
       "movie_description": "Nhân viên bảo vệ Mike bắt đầu làm việc tại Freddy Fazbear's Pizza. Trong đêm làm việc đầu tiên, anh nhận ra mình sẽ không dễ gì vượt qua được ca đêm ở đây. Chẳng mấy chốc, anh sẽ vén màn sự thật đã xảy ra tại Freddy's.",
       "genre": "Horror",
+      "banner_image_path": "https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/9/8/980x448-min_11.jpg",
       "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2F585ba1e3-211b-46fd-b4e1-a22767a735a3?alt=media&token=99d49169-7fe7-4702-9502-b30999b9ae5e",
-      "trailer_link": "https://youtu.be/J7XVzwEdUNw",
+      "trailer_link": "https://www.youtube.com/embed/yGeoPHN0Pss?si=w9QN8Mv7-6XKssKS",
       "duration": "110",
       "start_date": "2023-10-20",
-      "end_date": "2023-10-24",
+      "end_date": "2023-10-28",
       "status": "1",
       "id": "ParIkpm"
     },
     {
       "movie_name": "Kị sĩ bóng đêm",
-      "movie_description": "<p><span style=\"color: rgb(34, 34, 34);font-size: 14px;background-color: rgb(253, 252, 240)\"><strong>Kị Sĩ Bóng Đêm</strong> mở đầu bằng cuộc oanh tạc của Joker tại ngân hàng thành phố Gotham. Hắn gài bẫy nhóm cướp và rời đi một mình cùng số tiền khổng lồ. Trong khi đó, Batman, công tố viên Harvey Dent cùng ủy viên James Gordon liên minh và đưa ra sắc lệnh chống tội phạm trong thành phố. Tuy nhiên, Joker với tính cách điên loạn vẫn không dừng lại, hắn bắt đầu thâu tóm các băng đảng tội phạm và gây ra các cuộc thanh trừng người vô tội để vạch trần danh tính Batman, từng bước đẩy người hùng bóng đêm và các cộng sự vào những cái bẫy vô cùng tinh vi.</span></p><p>​<br></p>",
+      "movie_description": "<p><span style=\"font-size: 18px\"><span style=\"background-color: rgb(11, 12, 42)\"><span style=\"color: rgb(241, 241, 241)\"><strong>Kị Sĩ Bóng Đêm</strong></span></span></span><span style=\"color: rgb(241, 241, 241);background-color: rgb(11, 12, 42)\"> mở đầu bằng cuộc oanh tạc của Joker tại ngân hàng thành phố Gotham. Hắn gài bẫy nhóm cướp và rời đi một mình cùng số tiền khổng lồ. Trong khi đó, Batman, công tố viên Harvey Dent cùng ủy viên James Gordon liên minh và đưa ra sắc lệnh chống tội phạm trong thành phố. Tuy nhiên, Joker với tính cách điên loạn vẫn không dừng lại, hắn bắt đầu thâu tóm các băng đảng tội phạm và gây ra các cuộc thanh trừng người vô tội để vạch trần danh tính Batman, từng bước đẩy người hùng bóng đêm và các cộng sự vào những cái bẫy vô cùng tinh vi.</span></p><p><span style=\"background-color: rgb(11, 12, 42)\"><span style=\"color: rgb(241, 241, 241)\">​​</span>​</span><br></p>",
       "genre": "Action",
-      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmoives%2Ff77916c0-f85c-43cb-bf56-36b7011b9e4b?alt=media&token=46cb9f75-906f-40a2-a346-fe7f12c910ab",
-      "trailer_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "banner_image_path": "https://cdn.moveek.com/storage/media/cache/large/zC86rbB91b.jpg",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2Fbd025122-1ced-4105-9a26-0ec5a937ee69?alt=media&token=226f9839-7015-4ece-b14c-42dc5c00c077",
+      "trailer_link": "https://www.youtube.com/embed/zHEQs2KB25s?si=ENFa4cdikie3tgqF",
       "duration": "152",
-      "start_date": "2023-10-24",
+      "start_date": "2023-10-21",
       "end_date": "2023-10-26",
       "status": "1",
       "id": "eBXWMg0"
+    },
+    {
+      "movie_name": "Phong ấn quỷ dữ",
+      "movie_description": "<p>​<span style=\"color: rgb(34, 34, 34);font-size: 14px;background-color: rgb(253, 252, 240)\">Sam, một thiếu niên người Mỹ gốc Ấn, đang cố gắng hòa nhập vào môi trường học tập với nhiều sự các khác biệt văn hóa. Khi một con quỷ khát máu trong thần thoại đeo bám người bạn thân thiết của cô, Sam buộc phải đối mặt để đánh bại nó.</span>​</p>",
+      "genre": "Horror",
+      "banner_image_path": "https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/r/o/rollingbanner_vk.jpg",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2F0ea57e2b-a7ef-4230-b1d5-be253c81e635?alt=media&token=759f63f1-687b-4fa7-967f-66d2e579f60d",
+      "trailer_link": "https://www.youtube.com/embed/XrfEyQhqtb0?si=2aqmkEwVwc35cLrq",
+      "duration": "98",
+      "start_date": "2023-10-21",
+      "end_date": "2023-10-23",
+      "status": "1",
+      "id": "Lf8_GjI"
+    },
+    {
+      "movie_name": "Vầng trăng máu",
+      "movie_description": "<p>​<span style=\"color: rgb(34, 34, 34);font-size: 14px;background-color: rgb(253, 252, 240)\">Vào những năm 1920, các thành viên của khu tự trị Osage ở Mỹ bị ám sát một cách bí ẩn, làm dấy lên một cuộc điều tra lớn của FBI.</span>​<br></p>",
+      "genre": "Mystery, Suspense",
+      "banner_image_path": "https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/9/8/980x448px-min.jpg",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2Fddf3e68c-0c7b-49eb-8cb7-b68f504904cf?alt=media&token=8df835a6-ae4e-4cfa-91c8-e3039c18be53",
+      "trailer_link": "https://www.youtube.com/embed/c_iA5FnHzJc?si=mzScswIuL3nhioDt",
+      "duration": "206",
+      "start_date": "2023-10-25",
+      "end_date": "2023-10-28",
+      "status": "1",
+      "id": "CGEocnm"
+    },
+    {
+      "movie_name": "Quỷ môn quan: gọi hồn",
+      "movie_description": "<p>​<span style=\"color: rgb(34, 34, 34);font-size: 14px;background-color: rgb(253, 252, 240)\">Từ nhỏ, Hướng Vinh (Giang Diệp Sinh) đã có khả năng nhìn thấy ma quỷ. Bởi vì anh là người sở hữu “đôi mắt âm dương”. Để tránh rắc rối, Hướng Vinh thường vờ như chúng không tồn tại và anh quyết định rời Hong Kong và chuyển tới Canada. Một phần là bởi anh muốn quên đi thời thơ ấu đầy khốn khổ. Một ngày nọ, Hướng Vinh nghe tin người mẹ đang rơi vào hôn mê sau khi tử tự bất thành. Điều này buộc anh phải quay trở về quê nhà Hong Kong. Khi trở lại ngôi nhà cũ, mọi thứ dường như trở nên xa lạ. Nhưng điều đáng sợ nhất là, hàng loạt chuỗi tự sát của hàng xóm cùng sự xuất hiện trở lại của các hồn ma trước mắt Hướng Vinh. Mọi chuyện trở nên tồi tệ ngoài sức tưởng tượng của chàng trai trẻ…</span>​<br></p>",
+      "genre": "Horror",
+      "banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2F96085cef-99bd-4dde-8f85-150466143304?alt=media&token=86ef396b-5636-44b9-bd7a-8218264dc09e",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2Fa41caeaf-9a00-4d8b-ae65-748039382f5b?alt=media&token=77036877-a3e9-4e22-a4cf-9c7d4824da0c",
+      "trailer_link": "https://www.youtube.com/embed/6C08_pEtFXI?si=H1g8mw1NS_KM6TOm",
+      "duration": "93",
+      "start_date": "2023-10-27",
+      "end_date": "2023-10-28",
+      "status": "1",
+      "id": "2ELDk21"
+    },
+    {
+      "movie_name": "Âm hồn đô thị",
+      "movie_description": "<p>​<span style=\"color: rgb(241, 241, 241);background-color: rgb(11, 12, 42)\">Âm Hồn Đô Thị bao gồm 5 câu chuyện kinh dị: Ding-dong Challenge: Xoay quanh 3 người bạn Bora, Haeyul và Youngbi. Mỗi người đều có một mong muốn riêng và quyết định tham gia vào một cuộc thi nguy hiểm, chấp nhận thử thách thực hiện những vũ đạo trên một ứng dụng tên Ding-dong để biến ước mơ của mình thành sự thật. Jackpot: Câu chuyện về Jin-ho - anh chàng bất ngờ trúng số độc đắc khi chơi pachinko. Tưởng đây là điều may mắn nhất đời, nhưng Jin-ho bắt đầu trải qua những điều khủng khiếp cùng tài xế bí ẩn kể từ lúc anh bước lên chiếc taxi với một túi đầy tiền. Gold Tooth: Xoay quanh một người chăm sóc tử thi tại nhà tang lễ, vì lòng tham cá nhân nên anh ta đã lén nhổ những chiếc răng vàng để bán trục lợi. Mọi chuyện không thể kéo dài được mãi, bởi các oan hồn dần hiện về và đòi anh trả đủ những chiếc răng vàng của họ. Gluttony: Từ một buổi phát sóng trực tiếp biến thành một cuộc thi mukbang khắc nghiệt, những điều bất thường, kỳ lạ đã liên tiếp xảy ra khiến người xem không thể rời mắt khỏi màn hình. Resident-only Fitness Center: Tại một phòng tập thể dục sang trọng ở khu Gangnam bỗng xảy ra những sự kiện kỳ quái, mà phía sau đó là câu chuyện xúc động về Ji-yeon - cô gái chết oan muốn trả thù kẻ làm nhục mình.</span>​<br></p>",
+      "genre": "Horror",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2Fdd915b8a-45ae-4633-b7b3-00bbf6234967?alt=media&token=5bc62fc5-85e0-4f08-990d-efc4337445d3",
+      "trailer_link": "https://www.youtube.com/embed/HwS6pJ89nU8",
+      "duration": "90",
+      "start_date": "2023-10-28",
+      "end_date": "2023-10-30",
+      "status": "1",
+      "id": "xPSh6mg",
+      "banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2F576b23fa-6e9a-4362-8d76-4cb391a94393?alt=media&token=72fa94d8-c139-4d67-992d-7e8fb690710b"
     }
   ],
   "theaters": [
@@ -253,6 +335,437 @@
       "theater_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Ftheaters%2F2bf39dd4-931c-4553-b78b-67352b894ab3?alt=media&token=96c4054b-63c4-4df2-a045-9598676a8f20",
       "status": "1",
       "id": "ORZAKU7"
+    }
+  ],
+  "cinemas": [
+    {
+      "id": "1",
+      "theater_id": "1",
+      "cinema_name": "Cinema 1",
+      "status": "1"
+    },
+    {
+      "id": "2",
+      "theater_id": "1",
+      "cinema_name": "Cinema 2",
+      "status": "1"
+    },
+    {
+      "id": "3",
+      "theater_id": "2",
+      "cinema_name": "Cinema Abc",
+      "status": "1"
+    },
+    {
+      "id": "4",
+      "theater_id": "2",
+      "cinema_name": "Cinema Efg",
+      "status": "1"
+    },
+    {
+      "id": "5",
+      "theater_id": "3",
+      "cinema_name": "Cinema Happy",
+      "status": "1"
+    },
+    {
+      "id": "6",
+      "theater_id": "3",
+      "cinema_name": "Cinema Kute",
+      "status": "1"
+    },
+    {
+      "id": "7",
+      "theater_id": "ORZAKU7",
+      "cinema_name": "Cinema Vui",
+      "status": "1"
+    },
+    {
+      "id": "8",
+      "theater_id": "ORZAKU7",
+      "cinema_name": "Cinema U mê",
+      "status": "1"
+    }
+  ],
+  "showtimes": [
+    {
+      "id": "1",
+      "movie_id": "ParIkpm",
+      "start_time": "2023-10-21 10:00:00",
+      "end_time": "2023-10-21 12:00:00",
+      "cinema_id": "1"
+    },
+    {
+      "id": "2",
+      "movie_id": "ParIkpm",
+      "start_time": "2023-10-21 12:00:00",
+      "end_time": "2023-10-21 14:00:00",
+      "cinema_id": "1"
+    },
+    {
+      "id": "3",
+      "movie_id": "ParIkpm",
+      "start_time": "2023-10-21 14:00:00",
+      "end_time": "2023-10-21 16:00:00",
+      "cinema_id": "1"
+    },
+    {
+      "id": "4",
+      "movie_id": "ParIkpm",
+      "start_time": "2023-10-21 16:00:00",
+      "end_time": "2023-10-21 18:00:00",
+      "cinema_id": "1"
+    },
+    {
+      "id": "5",
+      "movie_id": "ParIkpm",
+      "start_time": "2023-10-21 18:00:00",
+      "end_time": "2023-10-21 20:00:00",
+      "cinema_id": "1"
+    },
+    {
+      "id": "6",
+      "movie_id": "eBXWMg0",
+      "start_time": "2023-10-21 20:00:00",
+      "end_time": "2023-10-21 22:00:00",
+      "cinema_id": "1"
+    },
+    {
+      "id": "7",
+      "movie_id": "eBXWMg0",
+      "start_time": "2023-10-22 10:00:00",
+      "end_time": "2023-10-22 12:00:00",
+      "cinema_id": "2"
+    },
+    {
+      "id": "8",
+      "movie_id": "eBXWMg0",
+      "start_time": "2023-10-22 12:00:00",
+      "end_time": "2023-10-22 14:00:00",
+      "cinema_id": "2"
+    },
+    {
+      "id": "9",
+      "movie_id": "eBXWMg0",
+      "start_time": "2023-10-22 14:00:00",
+      "end_time": "2023-10-22 16:00:00",
+      "cinema_id": "2"
+    },
+    {
+      "id": "10",
+      "movie_id": "Lf8_GjI",
+      "start_time": "2023-10-21 10:00:00",
+      "end_time": "2023-10-21 12:00:00",
+      "cinema_id": "3"
+    },
+    {
+      "id": "11",
+      "movie_id": "Lf8_GjI",
+      "start_time": "2023-10-21 12:00:00",
+      "end_time": "2023-10-21 14:00:00",
+      "cinema_id": "3"
+    },
+    {
+      "id": "12",
+      "movie_id": "Lf8_GjI",
+      "start_time": "2023-10-21 14:00:00",
+      "end_time": "2023-10-21 16:00:00",
+      "cinema_id": "3"
+    },
+    {
+      "id": "13",
+      "movie_id": "Lf8_GjI",
+      "start_time": "2023-10-21 16:00:00",
+      "end_time": "2023-10-21 18:00:00",
+      "cinema_id": "3"
+    },
+    {
+      "id": "14",
+      "movie_id": "Lf8_GjI",
+      "start_time": "2023-10-21 18:00:00",
+      "end_time": "2023-10-21 20:00:00",
+      "cinema_id": "3"
+    },
+    {
+      "id": "15",
+      "movie_id": "CGEocnm",
+      "start_time": "2023-10-21 20:00:00",
+      "end_time": "2023-10-21 22:00:00",
+      "cinema_id": "4"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "1",
+      "showtime_id": "1",
+      "user_id": "1",
+      "booking_date": "2021-01-01",
+      "seat_id": "1",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "2",
+      "showtime_id": "2",
+      "user_id": "2",
+      "booking_date": "2021-01-01",
+      "seat_id": "2",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "3",
+      "showtime_id": "3",
+      "user_id": "3",
+      "booking_date": "2021-01-01",
+      "seat_id": "3",
+      "seat_type": "vip",
+      "status": "1"
+    },
+    {
+      "id": "4",
+      "showtime_id": "4",
+      "user_id": "1",
+      "booking_date": "2021-01-01",
+      "seat_id": "4",
+      "seat_type": "vip",
+      "status": "1"
+    },
+    {
+      "id": "5",
+      "showtime_id": "5",
+      "user_id": "2",
+      "booking_date": "2021-01-02",
+      "seat_id": "5",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "6",
+      "showtime_id": "6",
+      "user_id": "3",
+      "booking_date": "2023-01-02",
+      "seat_id": "6",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "7",
+      "showtime_id": "7",
+      "user_id": "1",
+      "booking_date": "2023-01-02",
+      "seat_id": "7",
+      "seat_type": "vip",
+      "status": "1"
+    },
+    {
+      "id": "8",
+      "showtime_id": "8",
+      "user_id": "2",
+      "booking_date": "2023-01-02",
+      "seat_id": "8",
+      "seat_type": "vip",
+      "status": "1"
+    },
+    {
+      "id": "9",
+      "showtime_id": "9",
+      "user_id": "3",
+      "booking_date": "2023-01-03",
+      "seat_id": "9",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "10",
+      "showtime_id": "10",
+      "user_id": "1",
+      "booking_date": "2023-01-03",
+      "seat_id": "10",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "11",
+      "showtime_id": "11",
+      "user_id": "2",
+      "booking_date": "2023-01-03",
+      "seat_id": "11",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "12",
+      "showtime_id": "12",
+      "user_id": "3",
+      "booking_date": "2023-01-04",
+      "seat_id": "12",
+      "seat_type": "vip",
+      "status": "1"
+    },
+    {
+      "id": "13",
+      "showtime_id": "13",
+      "user_id": "1",
+      "booking_date": "2023-01-04",
+      "seat_id": "13",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "14",
+      "showtime_id": "14",
+      "user_id": "2",
+      "booking_date": "2023-01-05",
+      "seat_id": "14",
+      "seat_type": "normal",
+      "status": "1"
+    },
+    {
+      "id": "15",
+      "showtime_id": "15",
+      "user_id": "3",
+      "booking_date": "2023-01-05",
+      "seat_id": "15",
+      "seat_type": "vip",
+      "status": "1"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "movie_id": "ParIkpm",
+      "rating": "5",
+      "comment": "Great movie!",
+      "date": "2022-01-01",
+      "status": "1"
+    },
+    {
+      "id": "2",
+      "user_id": "2",
+      "movie_id": "eBXWMg0",
+      "rating": "4",
+      "comment": "Enjoyed the storyline.",
+      "date": "2022-01-02",
+      "status": "1"
+    },
+    {
+      "id": "3",
+      "user_id": "3",
+      "movie_id": "Lf8_GjI",
+      "rating": "3",
+      "comment": "Could have been better.",
+      "date": "2022-01-03",
+      "status": "1"
+    },
+    {
+      "id": "4",
+      "user_id": "1",
+      "movie_id": "CGEocnm",
+      "rating": "5",
+      "comment": "Amazing performances.",
+      "date": "2022-01-04",
+      "status": "1"
+    },
+    {
+      "id": "5",
+      "user_id": "2",
+      "movie_id": "ParIkpm",
+      "rating": "4",
+      "comment": "Loved the cinematography.",
+      "date": "2022-01-05",
+      "status": "1"
+    },
+    {
+      "id": "6",
+      "user_id": "3",
+      "movie_id": "eBXWMg0",
+      "rating": "3",
+      "comment": "Average movie.",
+      "date": "2022-01-06",
+      "status": "1"
+    },
+    {
+      "id": "7",
+      "user_id": "1",
+      "movie_id": "Lf8_GjI",
+      "rating": "5",
+      "comment": "Incredible soundtrack.",
+      "date": "2022-01-07",
+      "status": "1"
+    },
+    {
+      "id": "8",
+      "user_id": "2",
+      "movie_id": "CGEocnm",
+      "rating": "4",
+      "comment": "Engaging plot.",
+      "date": "2022-01-08",
+      "status": "1"
+    },
+    {
+      "id": "9",
+      "user_id": "3",
+      "movie_id": "ParIkpm",
+      "rating": "3",
+      "comment": "Disappointing ending.",
+      "date": "2022-01-09",
+      "status": "1"
+    },
+    {
+      "id": "10",
+      "user_id": "1",
+      "movie_id": "eBXWMg0",
+      "rating": "5",
+      "comment": "Must-watch!",
+      "date": "2022-01-10",
+      "status": "1"
+    },
+    {
+      "id": "11",
+      "user_id": "2",
+      "movie_id": "Lf8_GjI",
+      "rating": "1",
+      "comment": "Terrible movie!",
+      "date": "2021-01-15",
+      "status": "1"
+    },
+    {
+      "id": "12",
+      "user_id": "3",
+      "movie_id": "CGEocnm",
+      "rating": "4",
+      "comment": "Good, but not great.",
+      "date": "2021-01-16",
+      "status": "1"
+    },
+    {
+      "id": "13",
+      "user_id": "1",
+      "movie_id": "ParIkpm",
+      "rating": "2",
+      "comment": "Not worth the hype.",
+      "date": "2021-01-17",
+      "status": "1"
+    },
+    {
+      "id": "14",
+      "user_id": "2",
+      "movie_id": "eBXWMg0",
+      "rating": "5",
+      "comment": "A must-watch!",
+      "date": "2021-01-18",
+      "status": "1"
+    },
+    {
+      "id": "15",
+      "user_id": "3",
+      "movie_id": "Lf8_GjI",
+      "rating": "1",
+      "comment": "Waste of time.",
+      "date": "2021-01-19",
+      "status": "1"
     }
   ]
 }
