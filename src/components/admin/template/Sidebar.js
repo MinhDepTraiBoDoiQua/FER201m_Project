@@ -19,7 +19,7 @@ export default function Sidebar() {
             .catch(function (error) {
                 console.log(error);
             });
-    });
+    }, [accountId]);
 
     return (
         <ul

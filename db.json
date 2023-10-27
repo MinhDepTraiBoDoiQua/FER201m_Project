@@ -6,12 +6,10 @@
       "lastName": "Tendulkard",
       "email": "sachin@gmail.com",
       "username": "sachin",
-      "password": "123",
-      "avatar_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Favatar%2F0b00e9bc-be1e-40e6-9151-412cb7942d12?alt=media&token=123192f0-741e-4275-93e4-0a0b2482f75b",
+      "password": "vcl",
+      "avatar_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Favatar%2F2c5846b3-b0db-4020-8502-78d99ed79211?alt=media&token=ee0c83a8-e58f-4ace-ae9c-2a190c90d436",
       "status": "1",
-      "user_type": "1",
-      "": "123",
-      "newPassword": "123"
+      "user_type": "1"
     },
     {
       "id": "2",

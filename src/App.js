@@ -17,15 +17,13 @@ import { CinemaManage, CinemaCreate } from './components/admin/Cinema';
 import Footer from './components/admin/template/Footer';
 import Welcome from './components/admin/template/Welcome';
 import Login from './components/admin/authen/Login';
-import UserContext from './components/admin/authen/UserContext';
-import { useContext } from 'react';
 import Logout from './components/admin/authen/Logout';
 import Profile from './components/admin/profile/Profile';
+import ChangePassword from './components/admin/profile/ChangePassword';
 
 function App() {
-    const { isLoggedin } = useContext(UserContext);
     let checkLogin = false;
-    if (!isLoggedin && sessionStorage.getItem('accountId') !== null) {
+    if (sessionStorage.getItem('accountId') !== null) {
         checkLogin = true;
     } else {
         checkLogin = false;
@@ -96,6 +94,10 @@ function App() {
 
                                 {/* Profile */}
                                 <Route path="/profile" element={<Profile />} />
+                                <Route
+                                    path="/profile/change-password"
+                                    element={<ChangePassword />}
+                                />
                             </Routes>
                         </div>
                         {checkLogin && <Footer />}

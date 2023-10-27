@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
     };
 
     const checkLogin = () => {
-        if (!isLoggedin && sessionStorage.getItem('accountId') === null) {
+        if (sessionStorage.getItem('accountId') === null) {
             window.location.href = '/login';
         }
     };
