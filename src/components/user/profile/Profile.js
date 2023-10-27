@@ -174,7 +174,6 @@ const ProfileEdit = ({ account }) => {
                             'Image not found in Firebase Storage. No action taken.'
                         );
                     } else {
-                        // Handle other errors, if any
                         console.error(
                             'Error checking or deleting image:',
                             error

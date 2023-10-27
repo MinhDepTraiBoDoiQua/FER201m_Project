@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Loading from '../templates/Loading';
 import { GetAverageRating } from '../detail/Feedback';
+import { jsonServer } from '../constant/Constant';
 
 export default function ComingSoon() {
     const [movies, setMovies] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
+    const [feedbacks, setFeedbacks] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3000/movies')
@@ -13,6 +15,14 @@ export default function ComingSoon() {
             .then(data => {
                 setMovies(data);
                 setDataLoaded(true);
+            });
+    }, []);
+
+    useEffect(() => {
+        fetch(jsonServer + '/feedbacks')
+            .then(res => res.json())
+            .then(data => {
+                setFeedbacks(data);
             });
     }, []);
 
@@ -59,7 +69,13 @@ export default function ComingSoon() {
                                         {/* <div className="ep">Coming Soon</div> */}
                                         <div className="comment">
                                             <i className="fa fa-comments"></i>{' '}
-                                            11
+                                            {
+                                                feedbacks.filter(
+                                                    feedback =>
+                                                        feedback.movie_id ===
+                                                        movie.id
+                                                ).length
+                                            }
                                         </div>
                                         <GetAverageRating movieId={movie.id} />
                                     </div>

@@ -7,6 +7,7 @@ import { jsonServer } from '../constant/Constant';
 export default function Showing() {
     const [movies, setMovies] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
+    const [feedbacks, setFeedbacks] = useState([]);
 
     useEffect(() => {
         fetch(jsonServer + '/movies')
@@ -14,6 +15,14 @@ export default function Showing() {
             .then(data => {
                 setMovies(data);
                 setDataLoaded(true);
+            });
+    }, []);
+
+    useEffect(() => {
+        fetch(jsonServer + '/feedbacks')
+            .then(res => res.json())
+            .then(data => {
+                setFeedbacks(data);
             });
     }, []);
 
@@ -64,7 +73,13 @@ export default function Showing() {
                                         {/* <div className="ep">Now Showing</div> */}
                                         <div className="comment">
                                             <i className="fa fa-comments"></i>{' '}
-                                            11
+                                            {
+                                                feedbacks.filter(
+                                                    feedback =>
+                                                        feedback.movie_id ===
+                                                        movie.id
+                                                ).length
+                                            }
                                         </div>
                                         <GetAverageRating movieId={movie.id} />
                                     </div>
