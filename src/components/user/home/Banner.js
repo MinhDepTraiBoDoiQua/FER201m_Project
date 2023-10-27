@@ -6,13 +6,25 @@ import { jsonServer } from '../constant/Constant';
 
 export default function Banner() {
     const [movies, setMovies] = useState([]);
+    const [adsBanner, setAdsBanner] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
+        setDataLoaded(false);
         fetch(jsonServer + '/movies')
             .then(res => res.json())
             .then(data => {
                 setMovies(data);
+                setDataLoaded(true);
+            });
+    }, []);
+
+    useEffect(() => {
+        setDataLoaded(false);
+        fetch(jsonServer + '/adsBanner')
+            .then(res => res.json())
+            .then(data => {
+                setAdsBanner(data);
                 setDataLoaded(true);
             });
     }, []);
@@ -39,7 +51,7 @@ export default function Banner() {
                     <div className="container">
                         <Carousel fade>
                             {comingSoonMovies.map(movie => (
-                                <Carousel.Item key={movie.id}>
+                                <Carousel.Item key={`movie-${movie.id}`}>
                                     <Link to={`/movie-detail/${movie.id}`}>
                                         <div
                                             style={{
@@ -54,6 +66,24 @@ export default function Banner() {
                                             />
                                         </div>
                                     </Link>
+                                </Carousel.Item>
+                            ))}
+                            {adsBanner.map(ads => (
+                                <Carousel.Item key={`ads-${ads.id}`}>
+                                    <a href={ads.ads_link}>
+                                        <div
+                                            style={{
+                                                overflow: 'hidden',
+                                                maxHeight: '500px',
+                                            }}
+                                        >
+                                            <img
+                                                className="d-block w-100 rounded-lg"
+                                                src={ads.ads_banner_image_path}
+                                                alt="Cover movie"
+                                            />
+                                        </div>
+                                    </a>
                                 </Carousel.Item>
                             ))}
                         </Carousel>
