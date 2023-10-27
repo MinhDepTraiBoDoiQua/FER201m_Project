@@ -16,17 +16,35 @@ import {
 import { CinemaManage, CinemaCreate } from './components/admin/Cinema';
 import Footer from './components/admin/template/Footer';
 import Welcome from './components/admin/template/Welcome';
+import Login from './components/admin/authen/Login';
+import UserContext from './components/admin/authen/UserContext';
+import { useContext } from 'react';
+import Logout from './components/admin/authen/Logout';
+import Profile from './components/admin/profile/Profile';
 
 function App() {
+    const { isLoggedin } = useContext(UserContext);
+    let checkLogin = false;
+    if (!isLoggedin && sessionStorage.getItem('accountId') !== null) {
+        checkLogin = true;
+    } else {
+        checkLogin = false;
+    }
+    // const isPathLogin = window.location.pathname === '/login';
+
     return (
         <div id="page-top">
             <BrowserRouter>
                 <div id="wrapper">
-                    <Sidebar />
+                    {checkLogin && <Sidebar />}
+
                     <div id="content-wrapper" className="d-flex flex-column">
                         <div id="content">
-                            <Topbar />
+                            {checkLogin && <Topbar />}
                             <Routes>
+                                {/* Authen */}
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/logout" element={<Logout />} />
                                 {/* Welcome */}
                                 <Route path="/" element={<Welcome />} />
 
@@ -75,9 +93,12 @@ function App() {
                                     path="/cinema-manage/create"
                                     element={<CinemaCreate />}
                                 />
+
+                                {/* Profile */}
+                                <Route path="/profile" element={<Profile />} />
                             </Routes>
                         </div>
-                        <Footer />
+                        {checkLogin && <Footer />}
                     </div>
                 </div>
             </BrowserRouter>

@@ -12,8 +12,12 @@ import {
 import { v4 } from 'uuid';
 import Loading from './template/Loading';
 import CustomEditor from './template/SunEditor';
+import UserContext from './authen/UserContext';
+import { useContext } from 'react';
 
 const MovieManage = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const [movies, setMovies] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -116,6 +120,8 @@ const MovieManage = () => {
 };
 
 const MovieCreate = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const [img, setImg] = useState(null);
     const [imgBanner, setImgBanner] = useState(null);
     const [movie, setMovie] = useState({
@@ -153,6 +159,7 @@ const MovieCreate = () => {
         e.preventDefault();
         setDataLoaded(false);
 
+        let updatedMovie = { ...movie };
         if (img) {
             try {
                 const imgRef = ref(storage, `uploads/movies/${v4()}`);
@@ -162,24 +169,9 @@ const MovieCreate = () => {
                 // Set the image URL in your movie data
                 // setMovie({ ...movie, cover_image_path: imgUrl });
 
-                const updatedMovie = { ...movie, cover_image_path: imgUrl };
-
-                // Continue with the rest of your form submission logic
-                await fetch('http://localhost:3000/movies', {
-                    method: 'POST',
-                    body: JSON.stringify(updatedMovie),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then(response => response.json())
-                    .then(json => {
-                        console.log(json);
-                        setDataLoaded(true);
-                        window.location.href = '/movie-manage';
-                    });
+                updatedMovie = { ...movie, cover_image_path: imgUrl };
             } catch (error) {
-                window.alert('Error uploading image:', error);
+                window.alert('Error uploading cover image:', error);
             }
         } else {
             setDataLoaded(true);
@@ -187,6 +179,7 @@ const MovieCreate = () => {
         }
 
         if (imgBanner) {
+            setDataLoaded(false);
             try {
                 const imgRef = ref(storage, `uploads/movies/${v4()}`);
                 await uploadBytes(imgRef, imgBanner);
@@ -195,7 +188,10 @@ const MovieCreate = () => {
                 // Set the image URL in your movie data
                 // setMovie({ ...movie, cover_image_path: imgUrl });
 
-                const updatedMovie = { ...movie, banner_image_path: imgUrl };
+                updatedMovie = {
+                    ...updatedMovie,
+                    banner_image_path: imgUrl,
+                };
 
                 // Continue with the rest of your form submission logic
                 await fetch('http://localhost:3000/movies', {
@@ -212,7 +208,7 @@ const MovieCreate = () => {
                         window.location.href = '/movie-manage';
                     });
             } catch (error) {
-                window.alert('Error uploading image:', error);
+                window.alert('Error uploading banner image:', error);
             }
         } else {
             setDataLoaded(true);
@@ -417,6 +413,8 @@ const MovieCreate = () => {
 };
 
 const MovieEdit = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const { id } = useParams();
 
     const [movie, setMovie] = useState({
@@ -742,6 +740,8 @@ const MovieEdit = () => {
 };
 
 const MovieDelete = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const { id } = useParams();
     useEffect(() => {
         if (window.confirm('Are you sure you want to delete this movie?')) {

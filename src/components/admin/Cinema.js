@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useScript from '../../UseScript';
 import Loading from './template/Loading';
+import UserContext from './authen/UserContext';
+import { useContext } from 'react';
 
 const CinemaManage = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const [cinemas, setCinemas] = useState([]);
     const [theaters, setTheaters] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -113,6 +117,8 @@ const CinemaManage = () => {
 };
 
 const CinemaCreate = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const [cinema, setCinema] = useState({
         cinema_name: '',
         theater_id: '',

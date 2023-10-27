@@ -305,6 +305,19 @@
       "status": "1",
       "id": "xPSh6mg",
       "banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2F576b23fa-6e9a-4362-8d76-4cb391a94393?alt=media&token=72fa94d8-c139-4d67-992d-7e8fb690710b"
+    },
+    {
+      "movie_name": "Người vợ cuối cùng",
+      "movie_description": "<p><span style=\"color: rgb(241, 241, 241);background-color: rgb(11, 12, 42)\">Lấy cảm hứng từ tiểu thuyết Hồ Oán Hận, của nhà văn Hồng Thái, Người Vợ Cuối Cùng là một bộ phim tâm lý cổ trang, lấy bối cảnh Việt Nam vào triều Nguyễn. LINH - Người vợ bất đắc dĩ của một viên quan tri huyện, xuất thân là con của một gia đình nông dân nghèo khó, vì không thể hoàn thành nghĩa vụ sinh con nối dõi nên đã chịu sự chèn ép của những người vợ lớn trong gia đình. Sự gặp gỡ tình cờ của cô và người yêu thời thanh mai trúc mã của mình - NH N đã dẫn đến nhiều câu chuyện bất ngờ xảy ra khiến cuộc sống cô hoàn toàn thay đổi.​</span><br></p>",
+      "genre": "Drama, Romance",
+      "cover_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2F36b75213-ac22-41b4-b73d-56220b56912d?alt=media&token=51f33cb8-7b86-47a4-b3d6-ffc247722a6a",
+      "trailer_link": "https://www.youtube.com/embed/TtS_V55VcxA",
+      "duration": "132",
+      "start_date": "2023-11-03",
+      "end_date": "2023-11-11",
+      "status": "1",
+      "banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Fmovies%2F2a3e325c-1126-4cc9-ac29-7456250f8ed6?alt=media&token=78598960-505c-424f-b3e4-1a0825562b6b",
+      "id": "c5xrrLl"
     }
   ],
   "theaters": [

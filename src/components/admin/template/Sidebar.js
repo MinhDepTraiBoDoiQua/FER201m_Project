@@ -1,8 +1,26 @@
-import React from 'react';
-import Nav from 'react-bootstrap/Nav';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../authen/UserContext';
+import { useState, useContext } from 'react';
+import axios from 'axios';
+import { jsonServer } from '../constant/Constant';
 
 export default function Sidebar() {
+    const { accountId } = useContext(UserContext);
+
+    const [userType, setUserType] = useState('');
+
+    useEffect(() => {
+        axios
+            .get(`${jsonServer}/accounts/${accountId}`)
+            .then(function (response) {
+                setUserType(response.data.user_type);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+
     return (
         <ul
             className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -16,62 +34,74 @@ export default function Sidebar() {
                     <i className="fas fa-laugh-wink"></i>
                 </div>
                 <div className="sidebar-brand-text mx-3">
-                    ADMIN<sup>PRO VIP</sup>
+                    {userType === '1' ? 'ADMIN' : 'MANAGER'}
+                    <sup>PRO</sup>
                 </div>
             </Link>
 
             <hr className="sidebar-divider" />
 
-            <li className="nav-item">
-                <Link to="/movie-manage" className="nav-link">
-                    <i className="fas fa-fw fa-solid fa-film"></i>
-                    <span> Movie</span>
-                </Link>
-            </li>
-            <li as="li" className="nav-item">
-                <Link to="/theater-manage" className="nav-link">
-                    <i className="fas fa-fw fa-solid fa-dungeon"></i>
-                    <span> Theater</span>
-                </Link>
-            </li>
-            <li as="li" className="nav-item">
-                <Link to="/cinema-manage" className="nav-link">
-                    <i className="fas fa-fw fa-solid fa-tv"></i>
-                    <span> Cinema</span>
-                </Link>
-            </li>
-            <li as="li" className="nav-item">
-                <Link to="/user-manage" className="nav-link">
-                    <i className="fas fa-fw fa-solid fa-users"></i>
-                    <span> User</span>
-                </Link>
-            </li>
-            <li as="li" className="nav-item">
-                <Link to="/order-manage" className="nav-link">
-                    <i className="fas fa-fw fa-solid fa-tag"></i>
-                    <span> Order</span>
-                </Link>
-            </li>
-            <li as="li" className="nav-item">
-                <Link to="/report-manage" className="nav-link">
-                    <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span> Report</span>
-                </Link>
-            </li>
+            {userType === '2' ? (
+                <li className="nav-item">
+                    <Link to="/movie-manage" className="nav-link">
+                        <i className="fas fa-fw fa-solid fa-film"></i>
+                        <span> Movie</span>
+                    </Link>
+                </li>
+            ) : (
+                ''
+            )}
+
+            {userType === '1' ? (
+                <>
+                    <li as="li" className="nav-item">
+                        <Link to="/theater-manage" className="nav-link">
+                            <i className="fas fa-fw fa-solid fa-dungeon"></i>
+                            <span> Theater</span>
+                        </Link>
+                    </li>
+                    <li as="li" className="nav-item">
+                        <Link to="/cinema-manage" className="nav-link">
+                            <i className="fas fa-fw fa-solid fa-tv"></i>
+                            <span> Cinema</span>
+                        </Link>
+                    </li>
+                    <li as="li" className="nav-item">
+                        <Link to="/user-manage" className="nav-link">
+                            <i className="fas fa-fw fa-solid fa-users"></i>
+                            <span> User</span>
+                        </Link>
+                    </li>
+                    <li as="li" className="nav-item">
+                        <Link to="/order-manage" className="nav-link">
+                            <i className="fas fa-fw fa-solid fa-tag"></i>
+                            <span> Order</span>
+                        </Link>
+                    </li>
+                    <li as="li" className="nav-item">
+                        <Link to="/report-manage" className="nav-link">
+                            <i className="fas fa-fw fa-tachometer-alt"></i>
+                            <span> Report</span>
+                        </Link>
+                    </li>
+                </>
+            ) : (
+                ''
+            )}
 
             <hr className="sidebar-divider" />
 
             <li as="li" className="nav-item">
-                <Link to="/login" className="nav-link">
-                    <i className="fas fa-fw fa-solid fa-user"></i>
-                    <span> Login</span>
+                <Link to="/profile" className="nav-link">
+                    <i className="fas fa-user"></i>
+                    <span> Profile</span>
                 </Link>
             </li>
             <li as="li" className="nav-item">
-                <Nav.Link href="/logout" className="nav-link">
+                <Link to="/logout" className="nav-link">
                     <i className="fas fa-fw fas fa-sign-out-alt"></i>
                     <span> Logout</span>
-                </Nav.Link>
+                </Link>
             </li>
 
             <hr className="sidebar-divider" />

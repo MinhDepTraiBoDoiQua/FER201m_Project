@@ -1,13 +1,32 @@
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import UserContext from '../authen/UserContext';
+import { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
+import { jsonServer } from '../constant/Constant';
 
 export default function Topbar() {
+    const { accountId } = useContext(UserContext);
+
+    const [account, setAccount] = useState({});
+
+    useEffect(() => {
+        axios
+            .get(`${jsonServer}/accounts/${accountId}`)
+            .then(function (response) {
+                setAccount(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
     return (
         <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
             <form className="form-inline">
                 <button
                     id="sidebarToggleTop"
                     className="btn btn-link d-md-none rounded-circle mr-3"
+                    // onClick={e => e.preventDefault()}
                 >
                     <i className="fa fa-bars"></i>
                 </button>
@@ -77,12 +96,12 @@ export default function Topbar() {
                         aria-expanded="false"
                     >
                         <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                            Admin Name
+                            {account.username}
                         </span>
                         <img
                             className="img-profile rounded-circle"
                             alt=""
-                            src="https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png"
+                            src={`${account.avatar_image_path}`}
                         />
                     </Link>
 
@@ -91,13 +110,13 @@ export default function Topbar() {
                         className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown"
                     >
-                        <Link to="/" className="dropdown-item">
+                        <Link to="/profile" className="dropdown-item">
                             <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Profile
                         </Link>
                         <div className="dropdown-divider"></div>
                         <Link
-                            to="/"
+                            to="/logout"
                             className="dropdown-item"
                             data-toggle="modal"
                             data-target="#logoutModal"

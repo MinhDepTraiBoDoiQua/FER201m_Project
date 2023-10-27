@@ -11,8 +11,12 @@ import {
 } from 'firebase/storage';
 import { v4 } from 'uuid';
 import Loading from './template/Loading';
+import UserContext from './authen/UserContext';
+import { useContext } from 'react';
 
 const TheaterManage = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const [theaters, setTheaters] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -105,6 +109,8 @@ const TheaterManage = () => {
 };
 
 const TheaterCreate = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const [img, setImg] = useState(null);
     const [theater, setTheater] = useState({
         theater_name: '',
@@ -264,6 +270,8 @@ const TheaterCreate = () => {
 };
 
 const TheaterEdit = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const { id } = useParams();
 
     const [theater, setTheater] = useState({
@@ -447,6 +455,8 @@ const TheaterEdit = () => {
 };
 
 const TheaterDelete = () => {
+    const { checkLogin } = useContext(UserContext);
+    checkLogin();
     const { id } = useParams();
 
     useEffect(() => {
