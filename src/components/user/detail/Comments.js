@@ -246,6 +246,9 @@ export default function Comments() {
                             })}
                         </div>
                     ))}
+                {feedbacks.length === 0 && (
+                    <h3 style={{ color: 'white' }}>No feedbacks</h3>
+                )}
             </div>
         );
     }

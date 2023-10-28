@@ -13,7 +13,7 @@ export default function MovieDetails() {
     const [theaters, setTheaters] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [theaterSelected, setTheaterSelected] = useState(null);
-    const [datesSelected, setDatesSelected] = useState(null);
+    const [datesSelected, setDatesSelected] = useState('');
 
     useEffect(() => {
         fetch(jsonServer + '/theaters')
@@ -28,7 +28,6 @@ export default function MovieDetails() {
     const [dataLoadTheaterClicked, setDataLoadTheaterClicked] = useState(false);
     const handleTheaterClick = event => {
         event.preventDefault();
-        setDataLoadTheaterClicked(false);
 
         if (selectedTheater) {
             selectedTheater.style.backgroundColor = '';
@@ -38,7 +37,7 @@ export default function MovieDetails() {
         event.target.style.backgroundColor = '#e53637';
         const select = event.target.getAttribute('value');
         setTheaterSelected(select);
-        setDataLoadTheaterClicked(true);
+        setDataLoadTheaterClicked(!dataLoadTheaterClicked);
     };
 
     const [movie, setMovie] = useState([]);
@@ -69,7 +68,6 @@ export default function MovieDetails() {
     const [dataLoadDateClicked, setDataLoadDateClicked] = useState(false);
     const handleDateClick = event => {
         event.preventDefault();
-        setDataLoadDateClicked(false);
         if (selectedDate) {
             selectedDate.style.backgroundColor = '';
         }
@@ -78,7 +76,8 @@ export default function MovieDetails() {
         event.target.style.backgroundColor = '#e53637';
 
         const selectDate = event.target.getAttribute('value');
-        setDataLoadDateClicked(true);
+        console.log('Select date', selectDate);
+        setDataLoadDateClicked(!dataLoadDateClicked);
         setDatesSelected(selectDate);
     };
 
@@ -101,12 +100,7 @@ export default function MovieDetails() {
     const [timesSelect, setTimesSelect] = useState([]);
 
     useEffect(() => {
-        if (
-            dataLoadDateClicked &&
-            dataLoadTheaterClicked &&
-            datesSelected &&
-            theaterSelected
-        ) {
+        if (datesSelected && theaterSelected) {
             let cinemas = [];
             fetch(jsonServer + '/cinemas?theater_id=' + theaterSelected)
                 .then(res => res.json())
@@ -114,28 +108,20 @@ export default function MovieDetails() {
                     data.forEach(dt => {
                         cinemas.push(dt.id);
                     });
-                    fetch(jsonServer + '/showtimes?movie_id=' + id)
-                        .then(res => res.json())
-                        .then(data => {
-                            setTimesSelect(
-                                data.filter(
-                                    time =>
-                                        time.start_time.split(' ')[0].trim() ===
-                                            datesSelected.trim() &&
-                                        cinemas.includes(time.cinema_id)
-                                )
-                            );
-                        });
+                });
+            fetch(jsonServer + '/showtimes?movie_id=' + id)
+                .then(res => res.json())
+                .then(data => {
+                    setTimesSelect(
+                        data.filter(
+                            time =>
+                                time.start_time.includes(datesSelected) &&
+                                cinemas.includes(time.cinema_id)
+                        )
+                    );
                 });
         }
-    }, [
-        dataLoadDateClicked,
-        dataLoadTheaterClicked,
-        id,
-        timesSelect,
-        datesSelected,
-        theaterSelected,
-    ]);
+    }, [id, theaterSelected, dataLoadDateClicked, dataLoadTheaterClicked]);
 
     return (
         <>
