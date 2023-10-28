@@ -12,6 +12,7 @@ import UserContext from './components/user/authen/UserContext';
 import { useContext, useEffect, useState } from 'react';
 import { jsonServer } from './components/user/constant/Constant';
 import { ChangePassword } from './components/user/profile/ChangePassword';
+import Seats from './components/user/seats/Seats';
 
 function App() {
     const { accountId } = useContext(UserContext);
@@ -56,11 +57,15 @@ function App() {
                     ></Route>
 
                     {/* Movie Section */}
-
                     <Route
                         path="/movie-detail/:id"
                         element={<MovieDetails />}
                     ></Route>
+                    <Route path="/seats" element={<Seats />}></Route>
+                    <Route
+                        path="/choosing-seat/:movieId/:showtimeId"
+                        element={<Seats />}
+                    />
                 </Routes>
                 <Footer />
             </BrowserRouter>

@@ -234,7 +234,7 @@ export default function Details({ timeSelected }) {
                                         Trailer
                                     </Link>
                                     <Link
-                                        to={`/booking?movie_id=${id}&time=${timeSelected}`}
+                                        to={`/choosing-seat/${id}/${timeSelected}`}
                                         className="watch-btn"
                                         onClick={handleBooking}
                                     >

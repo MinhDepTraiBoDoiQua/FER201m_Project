@@ -7,6 +7,13 @@ import { Link, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { weekday, jsonServer } from '../constant/Constant';
 
+function formatDateToISO(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Đảm bảo có hai chữ số cho tháng
+    const day = String(date.getDate()).padStart(2, '0'); // Đảm bảo có hai chữ số cho ngày
+    return `${year}-${month}-${day}`;
+}
+
 export default function MovieDetails() {
     const { id } = useParams();
     const [selectedTheater, setSelectedTheater] = useState(null);
@@ -76,9 +83,8 @@ export default function MovieDetails() {
         event.target.style.backgroundColor = '#e53637';
 
         const selectDate = event.target.getAttribute('value');
-        console.log('Select date', selectDate);
         setDataLoadDateClicked(!dataLoadDateClicked);
-        setDatesSelected(selectDate);
+        setDatesSelected(formatDateToISO(new Date(selectDate)));
     };
 
     const [selectedTime, setSelectedTime] = useState(null);
@@ -95,7 +101,6 @@ export default function MovieDetails() {
         setSelectedTime(event.target);
         event.target.style.backgroundColor = '#e53637';
     };
-    // console.log('Set value', timeSelected);
 
     const [timesSelect, setTimesSelect] = useState([]);
 
@@ -198,7 +203,8 @@ export default function MovieDetails() {
                                             onClick={handleTimeClick}
                                             value={time.id}
                                         >
-                                            {time.start_time.split(' ')[1]}
+                                            {time.start_time.split(' ')[1]} -{' '}
+                                            {time.end_time.split(' ')[1]}
                                         </Link>
                                     ))}
                                     {timesSelect.length === 0 ? (
