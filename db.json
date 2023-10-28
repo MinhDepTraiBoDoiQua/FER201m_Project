@@ -777,6 +777,149 @@
       "comment": "Waste of time.",
       "date": "2021-01-19",
       "status": "1"
+    },
+    {
+      "movie_id": "CGEocnm",
+      "user_id": "1",
+      "rating": "3",
+      "comment": "Hello",
+      "date": "10/27/2023",
+      "status": "1",
+      "id": "1IdHufR"
+    },
+    {
+      "movie_id": "2ELDk21",
+      "user_id": "2",
+      "rating": "1",
+      "comment": "Phim hay nhưng mà xem sợ vl nên là 1 sao",
+      "date": "10/27/2023",
+      "status": "1",
+      "id": "gjlnrRw"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "quá đỉnh",
+      "date": "10/27/2023",
+      "status": "1",
+      "id": "pR5WKH6"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "Khó hiểu???",
+      "date": "10/27/2023",
+      "status": "1",
+      "id": "XWNAm3Q"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "5",
+      "comment": "Vcl",
+      "date": "10/27/2023",
+      "status": "1",
+      "id": "Ky7mm7z"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "Demooo",
+      "date": "10/28/2023",
+      "status": "1",
+      "id": "O66I2Fn"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "Demoasdasd",
+      "date": "10/28/2023",
+      "status": "1",
+      "id": "l1xLb7w"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "5",
+      "comment": "SUpper demo",
+      "date": "10/28/2023, 12:14:18 AM",
+      "status": "1",
+      "id": "Nabxl8I"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "test 2",
+      "date": "10/28/2023, 12:16:16 AM",
+      "status": "1",
+      "id": "PjiyA-g"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "Testtttt",
+      "date": "10/28/2023, 12:16:34 AM",
+      "status": "1",
+      "id": "mC_G5Q2"
+    },
+    {
+      "movie_id": "ParIkpm",
+      "user_id": "2",
+      "rating": "5",
+      "comment": "testttttt tiep",
+      "date": "10/28/2023, 12:17:06 AM",
+      "status": "1",
+      "id": "B2CCaDv"
+    }
+  ],
+  "feedbacksReply": [
+    {
+      "id": "1",
+      "feedback_id": "4",
+      "user_id": "1",
+      "reply": "Agreed!",
+      "date": "2022-01-02",
+      "status": "1"
+    },
+    {
+      "id": "2",
+      "feedback_id": "8",
+      "user_id": "3",
+      "reply": "Thanks for the feedback!",
+      "date": "2022-01-03",
+      "status": "1"
+    },
+    {
+      "id": "3",
+      "feedback_id": "8",
+      "user_id": "2",
+      "reply": "Glad you enjoyed it!",
+      "date": "2022-01-04",
+      "status": "1"
+    }
+  ],
+  "adsBanner": [
+    {
+      "id": "1",
+      "ads_banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2FadsBanner%2F02f33f4d-4c25-488a-afb9-2c504dca9e53?alt=media&token=8003c073-4613-4210-8826-ed5fe3203e3f",
+      "ads_link": "https://www.facebook.com/CosyVietnam",
+      "start_date": "2023-10-27",
+      "end_date": "2023-11-04",
+      "status": "0"
+    },
+    {
+      "ads_link": "https://bit.ly/3osS1x4",
+      "start_date": "2023-10-27",
+      "end_date": "2023-10-31",
+      "status": "1",
+      "ads_banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2FadsBanner%2F37db4708-b552-4072-b3dd-6acca1b2b02e?alt=media&token=c4db4b24-7f56-4e97-bcd9-ad450495c781",
+      "id": "f43Bg9y"
     }
   ]
 }

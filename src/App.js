@@ -20,6 +20,12 @@ import Login from './components/admin/authen/Login';
 import Logout from './components/admin/authen/Logout';
 import Profile from './components/admin/profile/Profile';
 import ChangePassword from './components/admin/profile/ChangePassword';
+import {
+    AdsBannerCreate,
+    AdsBannerDelete,
+    AdsBannerEdit,
+    AdsBannerManage,
+} from './components/admin/AdsBanner';
 
 function App() {
     let checkLogin = false;
@@ -97,6 +103,24 @@ function App() {
                                 <Route
                                     path="/profile/change-password"
                                     element={<ChangePassword />}
+                                />
+
+                                {/* Ads Banner */}
+                                <Route
+                                    path="/ads-banner-manage"
+                                    element={<AdsBannerManage />}
+                                />
+                                <Route
+                                    path="/ads-banner-manage/create"
+                                    element={<AdsBannerCreate />}
+                                />
+                                <Route
+                                    path="/ads-banner-manage/edit/:id"
+                                    element={<AdsBannerEdit />}
+                                />
+                                <Route
+                                    path="/ads-banner-manage/delete/:id"
+                                    element={<AdsBannerDelete />}
                                 />
                             </Routes>
                         </div>
