@@ -1,9 +1,9 @@
-import UserContext from './authen/UserContext';
+import UserContext from '../authen/UserContext';
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Loading from './template/Loading';
-import useScript from '../../UseScript';
-import { jsonServer } from './constant/Constant';
+import Loading from '../template/Loading';
+import useScript from '../../../UseScript';
+import { jsonServer } from '../constant/Constant';
 import { v4 } from 'uuid';
 import {
     ref,
@@ -11,7 +11,7 @@ import {
     uploadBytes,
     deleteObject,
 } from 'firebase/storage';
-import { storage } from '../../firebaseImage/Config';
+import { storage } from '../../../firebaseImage/Config';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 

@@ -25,7 +25,12 @@ import {
     AdsBannerDelete,
     AdsBannerEdit,
     AdsBannerManage,
-} from './components/admin/AdsBanner';
+} from './components/admin/adsBanner/AdsBanner';
+import {
+    MovieTimeCreate,
+    MovieTimeDetail,
+    MovieTimeManage,
+} from './components/admin/movieTime/MovieTime';
 
 function App() {
     let checkLogin = false;
@@ -121,6 +126,20 @@ function App() {
                                 <Route
                                     path="/ads-banner-manage/delete/:id"
                                     element={<AdsBannerDelete />}
+                                />
+
+                                {/* Show times */}
+                                <Route
+                                    path="/show-times"
+                                    element={<MovieTimeManage />}
+                                />
+                                <Route
+                                    path="/show-times/detail/:id"
+                                    element={<MovieTimeDetail />}
+                                />
+                                <Route
+                                    path="/show-times/detail/:id/create"
+                                    element={<MovieTimeCreate />}
                                 />
                             </Routes>
                         </div>

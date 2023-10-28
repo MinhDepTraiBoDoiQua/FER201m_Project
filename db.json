@@ -248,7 +248,7 @@
       "trailer_link": "https://www.youtube.com/embed/zHEQs2KB25s?si=ENFa4cdikie3tgqF",
       "duration": "152",
       "start_date": "2023-10-21",
-      "end_date": "2023-10-26",
+      "end_date": "2023-11-11",
       "status": "1",
       "id": "eBXWMg0"
     },
@@ -503,6 +503,20 @@
       "start_time": "2023-10-21 20:00:00",
       "end_time": "2023-10-21 22:00:00",
       "cinema_id": "4"
+    },
+    {
+      "movie_id": "c5xrrLl",
+      "cinema_id": "2",
+      "start_time": "2023-11-03 20:00:00",
+      "end_time": "2023-11-03 22:00:00",
+      "id": "GdvPGYV"
+    },
+    {
+      "movie_id": "c5xrrLl",
+      "cinema_id": "1",
+      "start_time": "2023-11-03 21:00:00",
+      "end_time": "2023-11-03 23:00:00",
+      "id": "9-kLU_G"
     }
   ],
   "tickets": [
@@ -911,7 +925,7 @@
       "ads_link": "https://www.facebook.com/CosyVietnam",
       "start_date": "2023-10-27",
       "end_date": "2023-11-04",
-      "status": "0"
+      "status": "1"
     },
     {
       "ads_link": "https://bit.ly/3osS1x4",

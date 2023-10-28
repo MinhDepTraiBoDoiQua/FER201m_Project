@@ -67,6 +67,18 @@ export default function Sidebar() {
                         </Link>
                     </li>
                     <li as="li" className="nav-item">
+                        <Link to="/show-times" className="nav-link">
+                            <img
+                                src="admin/img/ads.svg"
+                                alt="ads-banner"
+                                width="20px"
+                                height="20px"
+                                style={{ marginRight: '5px' }}
+                            ></img>
+                            <span> Show Times</span>
+                        </Link>
+                    </li>
+                    <li as="li" className="nav-item">
                         <Link to="/theater-manage" className="nav-link">
                             <i className="fas fa-fw fa-solid fa-dungeon"></i>
                             <span> Theater</span>
