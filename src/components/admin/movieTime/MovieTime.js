@@ -6,7 +6,7 @@ import Loading from '../template/Loading';
 import { Link } from 'react-router-dom';
 import { fontSize } from 'suneditor/src/plugins';
 import useScript from '../../../UseScript';
-
+import { useNavigate } from 'react-router-dom';
 const MovieTimeManage = () => {
     const [movies, setMovies] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -336,6 +336,7 @@ const MovieTimeCreate = () => {
         }
     }, [startTime, endTime, theaterId, cinemaId]);
 
+    const navigate = useNavigate();
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -355,7 +356,8 @@ const MovieTimeCreate = () => {
                 .then(res => res.json())
                 .then(data => {
                     alert('Create success');
-                    window.location.href = `/show-times/detail/${id}`;
+                    navigate(`/show-times/detail/${id}`);
+                    // window.location.href = `/show-times/detail/${id}`;
                 });
         }
     };
