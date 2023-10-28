@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 function Seats() {
     const [selectedSeats, setSelectedSeats] = useState([]);
@@ -6,7 +7,7 @@ function Seats() {
 
     useEffect(() => {
         generateSeats();
-    }, []);
+    });
 
     function handleSeatClick(event, seatNumber) {
         const seat = event.target
@@ -136,24 +137,58 @@ function Seats() {
                     </ul>
                 </div>
             </div>
-            <div className="container" style={{ marginTop: '40px' }}>
+            <div className="container" style={{marginTop: '40px'}}>
+            <div className="row">
+                <div className="col-lg-4">
+                    <div>
+                        <div className="anime__details__title">
+                            <span>Movie:</span>
+                            <div>
+                                <h4 style={{color: 'white'}}>Ki si bong dem</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-5">
+                    <div>
+                        <div className="anime__details__title">
+                            <span>Date - time:</span>
+                            <div>
+                                <h4 style={{color: 'white'}}>Saturday 28/10 | 20:00 - 22:00</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-3">
+                    <div>
+                        <div className="anime__details__title">
+                            <span>Theater:</span>
+                            <div>
+                                <h4 style={{color: 'white'}}>CGV Vinh Center </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div className="container" style={{ marginTop: '41px' }}>
                 <div className="row">
                     <div className="col-lg-3">
-                        <div className="login__register">
+                        <div>
                             <div className="anime__details__title">
                                 <span>Seat:</span>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <h3 style={{ color: 'white' }}>{selectedSeats.join(', ')}</h3>
+                                    <h4 style={{ color: 'white' }}>{selectedSeats.join(', ')}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-3">
-                        <div className="login__register">
+                        <div>
                             <div className="anime__details__title  total-price">
                                 <span>Total:</span>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <h3 style={{ color: 'white' }}>{`${totalAmount}.000 VND`}</h3>
+                                    <h4 style={{ color: 'white' }}>{`${totalAmount}.000 VND`}</h4>
                                 </div>
                             </div>
                         </div>
@@ -161,12 +196,12 @@ function Seats() {
 
                     <div className="col-lg-3">
                         <div className="anime__details__btn" style={{ paddingTop: '15px' }}>
-                            <a href="#" className="follow-btn" style={{ width: '200px', textAlign: 'center' }}> Back</a>
+                            <Link to="#" className="follow-btn" style={{ width: '200px', textAlign: 'center' }}> Back</Link>
                         </div>
                     </div>
                     <div className="col-lg-3">
                         <div className="anime__details__btn" style={{ paddingTop: '15px' }}>
-                            <a href="#" className="follow-btn"> Proceed Payment</a>
+                            <Link to='' className="follow-btn"> Proceed Payment</Link>
                         </div>
                     </div>
                 </div>
