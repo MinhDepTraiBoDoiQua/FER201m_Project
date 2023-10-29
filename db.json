@@ -587,119 +587,260 @@
       "id": "1",
       "order_id": "1",
       "showtime_id": "tpVK-au",
-      "user_id": "1",
       "seat_name": "A1",
-      "seat_type": "normal",
-      "status": "1"
+      "seat_type": "normal"
     },
     {
       "id": "2",
       "order_id": "1",
       "showtime_id": "tpVK-au",
-      "user_id": "1",
       "seat_name": "C4",
-      "seat_type": "vip",
-      "status": "1"
+      "seat_type": "vip"
     },
     {
       "id": "3",
       "order_id": "2",
       "showtime_id": "tpVK-au",
-      "user_id": "2",
       "seat_name": "C8",
-      "seat_type": "normal",
-      "status": "1"
+      "seat_type": "normal"
     },
     {
       "id": "4",
       "order_id": "2",
       "showtime_id": "tpVK-au",
-      "user_id": "2",
       "seat_name": "E1",
-      "seat_type": "normal",
-      "status": "1"
+      "seat_type": "normal"
     },
     {
       "id": "5",
       "order_id": "2",
       "showtime_id": "tpVK-au",
-      "user_id": "3",
       "seat_name": "E10",
-      "seat_type": "normal",
-      "status": "1"
+      "seat_type": "normal"
     },
     {
       "id": "6",
       "order_id": "3",
       "showtime_id": "gilh2sC",
-      "user_id": "3",
       "seat_name": "A5",
-      "seat_type": "normal",
-      "status": "1"
+      "seat_type": "normal"
     },
     {
       "id": "7",
       "order_id": "3",
       "showtime_id": "gilh2sC",
-      "user_id": "3",
       "seat_name": "C14",
-      "seat_type": "vip",
-      "status": "1"
+      "seat_type": "vip"
     },
     {
       "id": "8",
       "order_id": "3",
       "showtime_id": "gilh2sC",
-      "user_id": "3",
       "seat_name": "C15",
-      "seat_type": "vip",
-      "status": "1"
+      "seat_type": "vip"
     },
     {
       "id": "9",
       "order_id": "4",
       "showtime_id": "gilh2sC",
-      "user_id": "2",
       "seat_name": "C12",
-      "seat_type": "normal",
-      "status": "1"
+      "seat_type": "normal"
     },
     {
       "id": "10",
       "order_id": "4",
       "showtime_id": "gilh2sC",
-      "user_id": "2",
       "seat_name": "C13",
+      "seat_type": "normal"
+    },
+    {
+      "order_id": "FHWMOpC",
+      "showtime_id": "6",
+      "seat_name": "A1",
       "seat_type": "normal",
-      "status": "1"
+      "id": "UJUypWr"
+    },
+    {
+      "order_id": "FHWMOpC",
+      "showtime_id": "6",
+      "seat_name": "B4",
+      "seat_type": "vip",
+      "id": "LFBFd3K"
+    },
+    {
+      "order_id": "_aqNKeO",
+      "showtime_id": "tpVK-au",
+      "seat_name": "B3",
+      "seat_type": "normal",
+      "id": "tyE64lF"
+    },
+    {
+      "order_id": "_aqNKeO",
+      "showtime_id": "tpVK-au",
+      "seat_name": "B4",
+      "seat_type": "vip",
+      "id": "Nzz-Och"
+    },
+    {
+      "order_id": "_aqNKeO",
+      "showtime_id": "tpVK-au",
+      "seat_name": "B5",
+      "seat_type": "vip",
+      "id": "7m7aO_b"
+    },
+    {
+      "order_id": "71_txLk",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "B4",
+      "seat_type": "vip",
+      "id": "nMH4tdu"
+    },
+    {
+      "order_id": "71_txLk",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "B5",
+      "seat_type": "vip",
+      "id": "4zlAQmJ"
+    },
+    {
+      "order_id": "71_txLk",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "B6",
+      "seat_type": "vip",
+      "id": "hqfQTu-"
+    },
+    {
+      "order_id": "71_txLk",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "C5",
+      "seat_type": "vip",
+      "id": "FCn5GX6"
+    },
+    {
+      "order_id": "71_txLk",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "B7",
+      "seat_type": "vip",
+      "id": "vhOvKIY"
+    },
+    {
+      "order_id": "71_txLk",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "C4",
+      "seat_type": "vip",
+      "id": "2S_Nu_K"
+    },
+    {
+      "order_id": "u2zi_JN",
+      "showtime_id": "6",
+      "seat_name": "C7",
+      "seat_type": "vip",
+      "id": "9TpH485"
+    },
+    {
+      "order_id": "u2zi_JN",
+      "showtime_id": "6",
+      "seat_name": "C8",
+      "seat_type": "normal",
+      "id": "uXX2NRp"
+    },
+    {
+      "order_id": "FFHK8Zy",
+      "showtime_id": "zVsk407",
+      "seat_name": "D7",
+      "seat_type": "vip",
+      "id": "QAIy7l0"
+    },
+    {
+      "order_id": "FFHK8Zy",
+      "showtime_id": "zVsk407",
+      "seat_name": "D8",
+      "seat_type": "normal",
+      "id": "f2zeAQl"
+    },
+    {
+      "order_id": "FFHK8Zy",
+      "showtime_id": "zVsk407",
+      "seat_name": "E8",
+      "seat_type": "normal",
+      "id": "Y6Y8IOu"
     }
   ],
   "orders": [
     {
       "id": "1",
       "movie_id": "c5xrrLl",
+      "user_id": "1",
       "theater_id": "1",
-      "date_time": "2022-01-01 18:00:00"
+      "date_time": "2022-01-01 18:00:00",
+      "status": "paid"
     },
     {
       "id": "2",
       "movie_id": "c5xrrLl",
+      "user_id": "3",
       "theater_id": "1",
-      "date_time": "2022-01-02 15:30:00"
+      "date_time": "2022-01-02 15:30:00",
+      "status": "paid"
     },
     {
       "id": "3",
       "movie_id": "xPSh6mg",
+      "user_id": "2",
       "theater_id": "2",
-      "date_time": "2022-01-03 20:15:00"
+      "date_time": "2022-01-03 20:15:00",
+      "status": "paid"
     },
     {
       "id": "4",
       "movie_id": "xPSh6mg",
+      "user_id": "1",
       "theater_id": "2",
-      "date_time": "2022-01-04 12:45:00"
+      "date_time": "2022-01-04 12:45:00",
+      "status": "paid"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "user_id": "3",
+      "theater_id": "1",
+      "date_time": "2023-10-29 10:18:47",
+      "id": "FHWMOpC",
+      "status": "pending"
+    },
+    {
+      "movie_id": "c5xrrLl",
+      "theater_id": "1",
+      "user_id": "2",
+      "date_time": "2023-10-29 12:43:17",
+      "status": "pending",
+      "id": "_aqNKeO"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "ORZAKU7",
+      "date_time": "2023-10-29 17:25:19",
+      "user_id": "2",
+      "status": "pending",
+      "id": "71_txLk"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "1",
+      "date_time": "2023-10-29 17:28:35",
+      "user_id": "2",
+      "status": "pending",
+      "id": "u2zi_JN"
+    },
+    {
+      "movie_id": "c5xrrLl",
+      "theater_id": "3",
+      "date_time": "2023-10-29 17:34:21",
+      "user_id": "2",
+      "status": "pending",
+      "id": "FFHK8Zy"
     }
   ],
+  "tempSeats": [],
   "feedbacks": [
     {
       "id": "1",
@@ -977,13 +1118,13 @@
       "ads_banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2FadsBanner%2F02f33f4d-4c25-488a-afb9-2c504dca9e53?alt=media&token=8003c073-4613-4210-8826-ed5fe3203e3f",
       "ads_link": "https://www.facebook.com/CosyVietnam",
       "start_date": "2023-10-27",
-      "end_date": "2023-11-04",
+      "end_date": "2023-11-29",
       "status": "1"
     },
     {
       "ads_link": "https://bit.ly/3osS1x4",
       "start_date": "2023-10-27",
-      "end_date": "2023-10-31",
+      "end_date": "2023-11-30",
       "status": "1",
       "ads_banner_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2FadsBanner%2F37db4708-b552-4072-b3dd-6acca1b2b02e?alt=media&token=c4db4b24-7f56-4e97-bcd9-ad450495c781",
       "id": "f43Bg9y"
