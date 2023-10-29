@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -9,6 +9,8 @@ import {
     vipSeatsPrice,
 } from '../constant/Constant';
 import Loading from '../templates/Loading';
+import { useNavigate } from 'react-router-dom';
+import UserContext from '../authen/UserContext';
 
 // Lấy ngày trong tuần dưới dạng văn bản
 function getDayOfWeek(date) {
@@ -38,7 +40,34 @@ function formatTime(date) {
     return `${hours}:${minutes}`;
 }
 
+function getCurentDateTime() {
+    const currentDate = new Date();
+
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    const hours = currentDate.getHours().toString().padStart(2, '0');
+    const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+    const seconds = currentDate.getSeconds().toString().padStart(2, '0');
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
 function Seats() {
+    const navigate = useNavigate();
+    const { accountId } = useContext(UserContext);
+    const [userId, setUserId] = useState('0');
+    useEffect(() => {
+        if (accountId === null || accountId === '0') {
+            navigate('/login');
+        } else {
+            axios
+                .get(`${jsonServer}/users?account_id=${accountId}`)
+                .then(res => {
+                    setUserId(res.data[0].id);
+                });
+        }
+    }, [accountId, navigate]);
     const { movieId, showtimeId } = useParams();
 
     const [movie, setMovie] = useState([]);
@@ -47,6 +76,7 @@ function Seats() {
     const [theater, setTheater] = useState({});
     const [buyedSeats, setBuyedSeats] = useState([]); // Danh sách ghế đã được mua
     const [dataLoaded, setDataLoaded] = useState(false);
+    const [tempSeats, setTempSeats] = useState(new Set()); // Danh sách ghế đã được chọn tạm thời
 
     useEffect(() => {
         setDataLoaded(false);
@@ -200,6 +230,110 @@ function Seats() {
             </div>
         );
     }
+
+    // useEffect(() => {
+    //     const updateTempSeats = async () => {
+    //         for (const seat of selectedSeats) {
+    //             if (!tempSeats.has(seat)) {
+    //                 try {
+    //                     const response = await axios.post(
+    //                         `${jsonServer}/tempSeats`,
+    //                         {
+    //                             movie_id: movieId,
+    //                             showtime_id: showtimeId,
+    //                             seat_name: seat,
+    //                         }
+    //                     );
+    //                     tempSeats.add(response.data.seat_name);
+    //                     console.log(`Ghế ${seat} đã được thêm vào tempSeats.`);
+    //                 } catch (error) {
+    //                     console.error(
+    //                         `Lỗi khi thêm ghế ${seat} vào tempSeats: ${error}`
+    //                     );
+    //                 }
+    //             }
+    //         }
+
+    //         for (const seat of tempSeats) {
+    //             if (!selectedSeats.includes(seat)) {
+    //                 if (tempSeats.has(seat)) {
+    //                     try {
+    //                         await axios.delete(
+    //                             `${jsonServer}/tempSeats?movie_id=${movieId}&showtime_id=${showtimeId}&seat_name=${seat}`
+    //                         );
+    //                         tempSeats.delete(seat);
+    //                         console.log(
+    //                             `Ghế ${seat} đã bị xóa khỏi tempSeats.`
+    //                         );
+    //                     } catch (error) {
+    //                         console.error(
+    //                             `Lỗi khi xóa ghế ${seat} khỏi tempSeats: ${error}`
+    //                         );
+    //                     }
+    //                 } else {
+    //                     console.log(
+    //                         `Ghế ${seat} không tồn tại trong tempSeats.`
+    //                     );
+    //                 }
+    //             }
+    //         }
+    //     };
+
+    //     updateTempSeats();
+    // }, [selectedSeats]);
+
+    // const [tempSeatsChange, setTempSeatsChange] = useState(false);
+    // const [allTempSeats, setAllTempSeats] = useState([]);
+    // useEffect(() => {
+    //     axios.get(`${jsonServer}/tempSeats`).then(res => {
+    //         setAllTempSeats(res.data);
+    //         setTempSeatsChange(!tempSeatsChange);
+    //     })
+    // },[tempSeatsChange]);
+
+    // useEffect(() => {
+    //     axios.get(`${jsonServer}/tempSeats`).then(res => {
+    //         const tempSeats = new Set();
+    //         res.data.forEach(tempSeat => {
+    //             tempSeats.add(tempSeat.seat_name);
+    //         });
+
+    //     for (const seat of tempSeats) {
+    //         buyedSeats.add(seat);
+    //     }
+    // }, [tempSeats]);
+
+    const handleProcceedPayment = () => {
+        axios
+            .post(`${jsonServer}/orders`, {
+                movie_id: movieId,
+                theater_id: theater.id,
+                date_time: getCurentDateTime(),
+                user_id: userId,
+                status: 'pending',
+            })
+            .then(res => {
+                const orderId = res.data.id;
+                const postRequests = selectedSeats.map(seat => {
+                    return axios.post(`${jsonServer}/tickets`, {
+                        order_id: orderId,
+                        showtime_id: showtimeId,
+                        seat_name: seat,
+                        seat_type: vipSeats.includes(seat) ? 'vip' : 'normal',
+                    });
+                });
+
+                // Use Promise.all to wait for all requests to complete
+                Promise.all(postRequests)
+                    .then(() => {
+                        alert('Order successfully');
+                        navigate(`/booking-detail/${movieId}/${orderId}`);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+    };
 
     if (!dataLoaded) {
         return <Loading />;
@@ -367,10 +501,14 @@ function Seats() {
                                 className="anime__details__btn"
                                 style={{ paddingTop: '15px' }}
                             >
-                                <Link to="" className="follow-btn">
+                                <button
+                                    type="submit"
+                                    onClick={handleProcceedPayment}
+                                    className="follow-btn"
+                                >
                                     {' '}
                                     Proceed Payment
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </div>

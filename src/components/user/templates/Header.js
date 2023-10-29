@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header({ account }) {
+    const location = useLocation();
+
+    // Access the current URL or route
+    const currentURL = location.pathname;
     return (
         <>
-            {/* Page Preloder */}
-            {/* <div id="preloder">
-                <div className="loader"></div>
-            </div> */}
-
             {/* Header Section Begin */}
             <header className="header">
                 <div className="container">
@@ -32,48 +31,46 @@ export default function Header({ account }) {
                             <div className="header__nav">
                                 <nav className="header__menu mobile-menu">
                                     <ul>
-                                        <li className="active">
+                                        <li
+                                            className={`${
+                                                currentURL === '/'
+                                                    ? 'active'
+                                                    : ''
+                                            }`}
+                                        >
                                             <Link to="/">Homepage</Link>
                                         </li>
-                                        <li>
-                                            <Link to="/">
-                                                Categories{' '}
-                                                <span className="arrow_carrot-down"></span>
+                                        <li
+                                            className={`${
+                                                currentURL.includes('/profile')
+                                                    ? 'active'
+                                                    : ''
+                                            }`}
+                                        >
+                                            <Link to="/profile">Profile</Link>
+                                        </li>
+                                        <li
+                                            className={`${
+                                                currentURL.includes('/order')
+                                                    ? 'active'
+                                                    : ''
+                                            }`}
+                                        >
+                                            <Link to="/order">My Order</Link>
+                                        </li>
+                                        <li
+                                            className={`${
+                                                currentURL === '/contact'
+                                                    ? 'active'
+                                                    : ''
+                                            }`}
+                                        >
+                                            <Link
+                                                to="https://github.com/MinhDepTraiBoDoiQua/FER201m_Project"
+                                                target="_blank"
+                                            >
+                                                Contacts
                                             </Link>
-                                            <ul className="dropdown">
-                                                <li>
-                                                    <Link to="/">
-                                                        Categories
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link to="/">
-                                                        Anime Details
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link to="/">
-                                                        Anime Watching
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link to="/">
-                                                        Blog Details
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link to="/">Sign Up</Link>
-                                                </li>
-                                                <li>
-                                                    <Link to="/">Login</Link>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <Link to="/">Our Blog</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/">Contacts</Link>
                                         </li>
                                     </ul>
                                 </nav>

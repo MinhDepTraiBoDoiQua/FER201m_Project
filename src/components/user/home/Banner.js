@@ -24,7 +24,18 @@ export default function Banner() {
         fetch(jsonServer + '/adsBanner')
             .then(res => res.json())
             .then(data => {
-                setAdsBanner(data);
+                setAdsBanner(
+                    data.filter(ads => {
+                        const currentDate = new Date();
+                        const startDate = new Date(ads.start_date);
+                        const endDate = new Date(ads.end_date);
+                        return (
+                            startDate <= currentDate &&
+                            endDate >= currentDate &&
+                            ads.status === '1'
+                        );
+                    })
+                );
                 setDataLoaded(true);
             });
     }, []);

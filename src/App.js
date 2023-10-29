@@ -13,6 +13,9 @@ import { useContext, useEffect, useState } from 'react';
 import { jsonServer } from './components/user/constant/Constant';
 import { ChangePassword } from './components/user/profile/ChangePassword';
 import Seats from './components/user/seats/Seats';
+import BookingDetail from './components/user/booking/BookingDetail';
+import { MyTicket } from './components/user/ticket/MyTicket';
+import Order from './components/user/ticket/Order';
 
 function App() {
     const { accountId } = useContext(UserContext);
@@ -66,6 +69,19 @@ function App() {
                         path="/choosing-seat/:movieId/:showtimeId"
                         element={<Seats />}
                     />
+                    <Route
+                        path="/booking-detail/:movieId/:orderId"
+                        element={<BookingDetail />}
+                    />
+
+                    {/* Order Section */}
+                    <Route path="/order" element={<Order />}></Route>
+                    <Route
+                        path="/order/:orderId"
+                        element={<MyTicket />}
+                    ></Route>
+
+                    {/* Contact Section */}
                 </Routes>
                 <Footer />
             </BrowserRouter>

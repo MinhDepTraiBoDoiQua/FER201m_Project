@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -22,16 +22,21 @@ export default function Footer() {
                             <div className="footer__nav">
                                 <ul>
                                     <li className="active">
-                                        <Link to="./index.html">Homepage</Link>
+                                        <Link to="/">Homepage</Link>
                                     </li>
                                     <li>
-                                        <Link to="./categories.html">Categories</Link>
+                                        <Link to="/profile">Profile</Link>
                                     </li>
                                     <li>
-                                        <Link to="./blog.html">Our Blog</Link>
+                                        <Link to="/order">My Order</Link>
                                     </li>
                                     <li>
-                                        <Link to="#">Contacts</Link>
+                                        <Link
+                                            to="https://github.com/MinhDepTraiBoDoiQua/FER201m_Project"
+                                            target="_blank"
+                                        >
+                                            Contacts
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -44,7 +49,11 @@ export default function Footer() {
                                     document.write(new Date().getFullYear());
                                 </script>
                                 All rights reserved | This template is made with{' '}
-                                <i className="fa fa-heart" aria-hidden="true"></i> by{' '}
+                                <i
+                                    className="fa fa-heart"
+                                    aria-hidden="true"
+                                ></i>{' '}
+                                by{' '}
                                 <Link to="https://colorlib.com" target="_blank">
                                     Colorlib
                                 </Link>
@@ -63,5 +72,5 @@ export default function Footer() {
             <script src="./js/owl.carousel.min.js"></script>
             <script src="./js/main.js"></script>
         </>
-    )
+    );
 }

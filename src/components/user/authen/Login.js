@@ -19,7 +19,9 @@ const Login = () => {
         e.preventDefault();
 
         await axios
-            .get(`${jsonServer}/accounts?email=${email}&password=${password}`)
+            .get(
+                `${jsonServer}/accounts?email=${email}&password=${password}&user_type=3`
+            )
             .then(function (response) {
                 const account = response.data[0];
                 if (response.data.length === 0) {
