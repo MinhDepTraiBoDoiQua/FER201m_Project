@@ -162,29 +162,57 @@ export default function MovieDetails() {
                                     <h5>Date</h5>
                                 </div>
                                 <div className="anime__details__episodes">
-                                    {datesSelect.map((date, index) => (
-                                        <Link
-                                            as="a"
-                                            className="item"
-                                            style={{ textAlign: 'center' }}
-                                            key={index}
-                                            onClick={handleDateClick}
-                                            value={
-                                                date.getYear() +
-                                                1900 +
-                                                '-' +
-                                                (date.getMonth() + 1) +
-                                                '-' +
-                                                date.getDate()
+                                    {datesSelect
+                                        .filter(date => {
+                                            const today = new Date();
+                                            if (
+                                                date.getYear() ===
+                                                today.getYear()
+                                            ) {
+                                                if (
+                                                    date.getMonth() ===
+                                                    today.getMonth()
+                                                ) {
+                                                    return (
+                                                        date.getDate() >=
+                                                        today.getDate()
+                                                    );
+                                                } else {
+                                                    return (
+                                                        date.getMonth() >=
+                                                        today.getMonth()
+                                                    );
+                                                }
+                                            } else {
+                                                return (
+                                                    date.getYear() >=
+                                                    today.getYear()
+                                                );
                                             }
-                                        >
-                                            {weekday[date.getDay()] +
-                                                ' ' +
-                                                date.getDate() +
-                                                '/' +
-                                                (date.getMonth() + 1)}
-                                        </Link>
-                                    ))}
+                                        })
+                                        .map((date, index) => (
+                                            <Link
+                                                as="a"
+                                                className="item"
+                                                style={{ textAlign: 'center' }}
+                                                key={index}
+                                                onClick={handleDateClick}
+                                                value={
+                                                    date.getYear() +
+                                                    1900 +
+                                                    '-' +
+                                                    (date.getMonth() + 1) +
+                                                    '-' +
+                                                    date.getDate()
+                                                }
+                                            >
+                                                {weekday[date.getDay()] +
+                                                    ' ' +
+                                                    date.getDate() +
+                                                    '/' +
+                                                    (date.getMonth() + 1)}
+                                            </Link>
+                                        ))}
                                 </div>
                             </div>
 
