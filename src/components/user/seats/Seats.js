@@ -74,7 +74,7 @@ function Seats() {
     const [cinema, setCinema] = useState({});
     const [showtime, setShowtime] = useState({});
     const [theater, setTheater] = useState({});
-    const [buyedSeats, setBuyedSeats] = useState([]); // Danh sách ghế đã được mua
+    const [buyedSeats, setBuyedSeats] = useState(new Set()); // Danh sách ghế đã được mua
     const [dataLoaded, setDataLoaded] = useState(false);
     const [tempSeats, setTempSeats] = useState(new Set()); // Danh sách ghế đã được chọn tạm thời
 
@@ -108,7 +108,7 @@ function Seats() {
             .get(`${jsonServer}/tickets?showtime_id=${showtimeId}`)
             .then(res => {
                 const seatNames = res.data.map(ticket => ticket.seat_name);
-                setBuyedSeats(seatNames);
+                setBuyedSeats(new Set(seatNames));
                 setDataLoaded(true);
             });
     }, []);
@@ -129,7 +129,6 @@ function Seats() {
     const formattedOutputDateTime =
         formattedStartTime + ' - ' + formattedEndTime;
 
-    const fakeBuyedSeats = ['B7', 'C7', 'D6'];
     const [selectedSeats, setSelectedSeats] = useState([]);
     const totalAmount = selectedSeats.reduce((total, seat) => {
         if (vipSeats.includes(seat)) {
@@ -150,7 +149,7 @@ function Seats() {
             setSelectedSeats(selectedSeats.filter(seat => seat !== seatNumber));
             seat.style.backgroundColor =
                 seat.id === 'vip' ? '#e53637' : 'rgba(255, 255, 255, 0.2)';
-        } else if (buyedSeats.includes(seatNumber)) {
+        } else if (buyedSeats.has(seatNumber)) {
             // Ghế đã mua
             return;
         } else {
@@ -178,7 +177,7 @@ function Seats() {
                     (j >= 4 && j <= 7) || (j >= 14 && j <= 17)
                         ? currentRow !== 'A' && currentRow !== 'E'
                         : false;
-                const isBuyed = buyedSeats.includes(seatNumberText);
+                const isBuyed = buyedSeats.has(seatNumberText);
 
                 const seat = (
                     <a
@@ -232,76 +231,42 @@ function Seats() {
     }
 
     // useEffect(() => {
-    //     const updateTempSeats = async () => {
-    //         for (const seat of selectedSeats) {
-    //             if (!tempSeats.has(seat)) {
-    //                 try {
-    //                     const response = await axios.post(
-    //                         `${jsonServer}/tempSeats`,
-    //                         {
-    //                             movie_id: movieId,
-    //                             showtime_id: showtimeId,
-    //                             seat_name: seat,
-    //                         }
-    //                     );
-    //                     tempSeats.add(response.data.seat_name);
-    //                     console.log(`Ghế ${seat} đã được thêm vào tempSeats.`);
-    //                 } catch (error) {
-    //                     console.error(
-    //                         `Lỗi khi thêm ghế ${seat} vào tempSeats: ${error}`
-    //                     );
-    //                 }
-    //             }
+    //     const fetchData = async () => {
+    //         if (selectedSeats.length > 0) {
+    //             selectedSeats.forEach(seat => {
+    //                 axios.push(`${jsonServer}/tempSeats`, {
+    //                     seat_name: seat,
+    //                     movie_id: movieId,
+    //                     showtime_id: showtimeId,
+    //                 });
+    //             });
     //         }
 
-    //         for (const seat of tempSeats) {
-    //             if (!selectedSeats.includes(seat)) {
-    //                 if (tempSeats.has(seat)) {
-    //                     try {
-    //                         await axios.delete(
-    //                             `${jsonServer}/tempSeats?movie_id=${movieId}&showtime_id=${showtimeId}&seat_name=${seat}`
-    //                         );
-    //                         tempSeats.delete(seat);
-    //                         console.log(
-    //                             `Ghế ${seat} đã bị xóa khỏi tempSeats.`
-    //                         );
-    //                     } catch (error) {
-    //                         console.error(
-    //                             `Lỗi khi xóa ghế ${seat} khỏi tempSeats: ${error}`
-    //                         );
-    //                     }
-    //                 } else {
-    //                     console.log(
-    //                         `Ghế ${seat} không tồn tại trong tempSeats.`
-    //                     );
-    //                 }
+    //         axios.get(`${jsonServer}/tempSeats`).then(res => {
+    //             const temps = new Set();
+    //             res.data.forEach(tempSeat => {
+    //                 temps.add(tempSeat.seat_name);
+    //             });
+    //             setTempSeats(temps);
+
+    //             const buyeds = new Set();
+    //             if (buyedSeats.size > 0) {
+    //                 buyedSeats.forEach(seat => buyeds.add(seat));
     //             }
-    //         }
+
+    //             // console.log(buyeds);
+    //             for (const seat of temps) {
+    //                 buyedSeats.add(seat);
+    //             }
+    //             console.log(buyedSeats);
+    //             // setBuyedSeats(buyeds);
+    //         });
     //     };
 
-    //     updateTempSeats();
-    // }, [selectedSeats]);
+    //     const interval = setInterval(fetchData, 1000); // Poll every second
 
-    // const [tempSeatsChange, setTempSeatsChange] = useState(false);
-    // const [allTempSeats, setAllTempSeats] = useState([]);
-    // useEffect(() => {
-    //     axios.get(`${jsonServer}/tempSeats`).then(res => {
-    //         setAllTempSeats(res.data);
-    //         setTempSeatsChange(!tempSeatsChange);
-    //     })
-    // },[tempSeatsChange]);
-
-    // useEffect(() => {
-    //     axios.get(`${jsonServer}/tempSeats`).then(res => {
-    //         const tempSeats = new Set();
-    //         res.data.forEach(tempSeat => {
-    //             tempSeats.add(tempSeat.seat_name);
-    //         });
-
-    //     for (const seat of tempSeats) {
-    //         buyedSeats.add(seat);
-    //     }
-    // }, [tempSeats]);
+    //     return () => clearInterval(interval); // Cleanup
+    // }, [selectedSeats, buyedSeats]);
 
     const handleProcceedPayment = () => {
         axios

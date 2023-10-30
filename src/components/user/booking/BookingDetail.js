@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
     jsonServer,
     vipSeatsPrice,
@@ -78,6 +78,10 @@ const BookingDetail = () => {
     const ticketSeats = tickets.reduce((total, ticket) => {
         return total + ticket.seat_name + ' ';
     }, '');
+
+    const handleFakePayment = () => {
+        axios.patch(`${jsonServer}/orders/${orderId}`, { status: 'paid' });
+    };
 
     const numberOfVipSeats = tickets.filter(
         ticket => ticket.seat_type === 'vip'
@@ -211,13 +215,14 @@ const BookingDetail = () => {
                                 </div>
 
                                 <div className="anime__details__title">
-                                    <h3>Payment method</h3>
-                                    <a
-                                        href="login.html"
+                                    <h3>QR CODE IN HERE</h3>
+                                    <Link
+                                        to="/order"
                                         className="primary-btn"
+                                        onClick={handleFakePayment}
                                     >
-                                        Momo
-                                    </a>
+                                        FAKE PAYMENT
+                                    </Link>
                                     <a
                                         href="login.html"
                                         className="primary-btn"
