@@ -11,6 +11,9 @@ import {
 import Loading from '../templates/Loading';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../authen/UserContext';
+import io from 'socket.io-client';
+
+// const socket = io('http://localhost:5000'); // WebSocket server URL
 
 // Lấy ngày trong tuần dưới dạng văn bản
 function getDayOfWeek(date) {
@@ -77,6 +80,7 @@ function Seats() {
     const [buyedSeats, setBuyedSeats] = useState(new Set()); // Danh sách ghế đã được mua
     const [dataLoaded, setDataLoaded] = useState(false);
     const [tempSeats, setTempSeats] = useState(new Set()); // Danh sách ghế đã được chọn tạm thời
+    const [socketId, setSocketId] = useState(null);
 
     useEffect(() => {
         setDataLoaded(false);
@@ -140,7 +144,27 @@ function Seats() {
 
     useEffect(() => {
         generateSeats();
-    });
+    }, [buyedSeats]);
+
+    // useEffect(() => {
+    //     socket.on('getId', data => {
+    //         setSocketId(data);
+    //     });
+    // }, []);
+
+    // useEffect(() => {
+    //     if (socketId !== null) {
+    //         socket.on('current-select-seat', data => {
+    //             const buyed = new Set(
+    //                 data.map(
+    //                     seat => seat.seat_name && seat.socket_id !== socketId
+    //                 )
+    //             );
+    //             buyed.add(...buyedSeats);
+    //             setBuyedSeats(buyed);
+    //         });
+    //     }
+    // }, [socketId, buyedSeats]);
 
     function handleSeatClick(event, seatNumber) {
         const seat = event.target;
@@ -155,6 +179,18 @@ function Seats() {
         } else {
             // Nếu chưa được chọn, thêm vào danh sách
             setSelectedSeats([...selectedSeats, seatNumber]);
+            // const seats = [];
+            // selectedSeats.forEach(seat => {
+            //     seats.push({
+            //         seat_name: seat,
+            //         socket_id: socketId,
+            //     });
+            // });
+            // seats.push({
+            //     seat_name: seatNumber,
+            //     socket_id: socketId,
+            // });
+            // socket.emit('current-select-seat-client', seats);
             seat.style.backgroundColor = '#323232';
         }
     }
@@ -211,6 +247,7 @@ function Seats() {
         // Render the seats in React JSX
         return (
             <div className="cinema">
+                <h3 style={{ color: 'white' }}>Client ID: {socketId}</h3>
                 <div className="screen">Screen</div>
                 <div className="seats">
                     <div className="row">
@@ -229,44 +266,6 @@ function Seats() {
             </div>
         );
     }
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (selectedSeats.length > 0) {
-    //             selectedSeats.forEach(seat => {
-    //                 axios.push(`${jsonServer}/tempSeats`, {
-    //                     seat_name: seat,
-    //                     movie_id: movieId,
-    //                     showtime_id: showtimeId,
-    //                 });
-    //             });
-    //         }
-
-    //         axios.get(`${jsonServer}/tempSeats`).then(res => {
-    //             const temps = new Set();
-    //             res.data.forEach(tempSeat => {
-    //                 temps.add(tempSeat.seat_name);
-    //             });
-    //             setTempSeats(temps);
-
-    //             const buyeds = new Set();
-    //             if (buyedSeats.size > 0) {
-    //                 buyedSeats.forEach(seat => buyeds.add(seat));
-    //             }
-
-    //             // console.log(buyeds);
-    //             for (const seat of temps) {
-    //                 buyedSeats.add(seat);
-    //             }
-    //             console.log(buyedSeats);
-    //             // setBuyedSeats(buyeds);
-    //         });
-    //     };
-
-    //     const interval = setInterval(fetchData, 1000); // Poll every second
-
-    //     return () => clearInterval(interval); // Cleanup
-    // }, [selectedSeats, buyedSeats]);
 
     const handleProcceedPayment = () => {
         axios

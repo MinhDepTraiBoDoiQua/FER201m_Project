@@ -55,6 +55,7 @@ export default function Comments() {
     const [star, setStar] = useState(0);
     const [comment, setComment] = useState('');
     const { accountId } = useContext(UserContext);
+    const isLogin = sessionStorage.getItem('accountId') !== null;
     const handleSubmitFeedback = async e => {
         e.preventDefault();
         setDataLoaded(false);
@@ -83,39 +84,154 @@ export default function Comments() {
             });
     };
 
+    const [isReplyFormVisible, setIsReplyFormVisible] = useState(false);
+    const [isReportFormVisible, setIsReportFormVisible] = useState(false);
+    const [isReportReplyFormVisible, setIsReportReplyFormVisible] =
+        useState(false);
+
+    const [replyFeedbackId, setReplyFeedbackId] = useState('');
+    const [reportFeedbackId, setReportFeedbackId] = useState('');
+    const [reportFeedbackReplyId, setReportFeedbackReplyId] = useState('');
+
+    const showReplyForm = event => {
+        setReplyFeedbackId(event.target.getAttribute('value'));
+        setIsReplyFormVisible(true);
+        setIsReportFormVisible(false);
+        setIsReportReplyFormVisible(false);
+    };
+
+    const [reply, setReply] = useState('');
+    const handleSubmitReplyFeedback = async e => {
+        setDataLoaded(false);
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+
+        const newFeedbackReply = {
+            feedback_id: replyFeedbackId + '',
+            user_id: users.find(user => user.account_id === accountId)?.id + '',
+            reply: reply,
+            date: dateTimeString,
+            status: '1',
+        };
+
+        axios
+            .post(`${jsonServer}/feedbacksReply`, newFeedbackReply)
+            .then(res => {
+                setIsReplyFormVisible(false);
+                setChangeFeedbacks(!changeFeedbacks);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(() => {
+                setDataLoaded(true);
+            });
+    };
+
+    const [report, setReport] = useState('');
+    const showReportForm = event => {
+        setReportFeedbackId(event.target.getAttribute('value'));
+        setIsReportFormVisible(true);
+        setIsReplyFormVisible(false);
+        setIsReportReplyFormVisible(false);
+    };
+
+    const handleSubmitReportFeedback = async e => {
+        setDataLoaded(false);
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+
+        const newReport = {
+            feedback_id: reportFeedbackId + '',
+            user_id: users.find(user => user.account_id === accountId)?.id + '',
+            report: report,
+            date: dateTimeString,
+        };
+
+        axios
+            .post(`${jsonServer}/reportFeedbacks`, newReport)
+            .then(res => {
+                setIsReportFormVisible(false);
+                setChangeFeedbacks(!changeFeedbacks);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(() => {
+                setDataLoaded(true);
+            });
+    };
+
+    const [reportReply, setReportReply] = useState('');
+    const showReportReplyForm = event => {
+        setReportFeedbackReplyId(event.target.getAttribute('value'));
+        setIsReportReplyFormVisible(true);
+        setIsReportFormVisible(false);
+        setIsReplyFormVisible(false);
+    };
+
+    const handleSubmitReportReplyFeedback = async e => {
+        setDataLoaded(false);
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+
+        const newReport = {
+            feedback_id: reportFeedbackReplyId + '',
+            user_id: users.find(user => user.account_id === accountId)?.id + '',
+            report: reportReply,
+            date: dateTimeString,
+        };
+
+        axios
+            .post(`${jsonServer}/reportReplyFeedbacks`, newReport)
+            .then(res => {
+                setIsReportReplyFormVisible(false);
+                setChangeFeedbacks(!changeFeedbacks);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(() => {
+                setDataLoaded(true);
+            });
+    };
+
     if (!dataLoaded) {
         return <Loading />;
     } else {
         return (
             <div className="blog__details__comment">
-                <div className="anime__details__form">
-                    <div className="section-title">
-                        <h5>Your Feedback</h5>
+                {isLogin && (
+                    <div className="anime__details__form">
+                        <div className="section-title">
+                            <h5>Your Feedback</h5>
+                        </div>
+                        <form onSubmit={handleSubmitFeedback}>
+                            <ReactStars
+                                count={5}
+                                size={24}
+                                a11y={true}
+                                isHalf={false}
+                                value={0}
+                                filledIcon={<i className="fa fa-star"></i>}
+                                activeColor="#ffd700"
+                                color="white"
+                                onChange={startValue => {
+                                    setStar(startValue);
+                                }}
+                            />
+                            <textarea
+                                placeholder="Your Comment"
+                                onChange={e => setComment(e.target.value)}
+                            />
+                            <button type="submit">
+                                <i className="fa fa-location-arrow"></i> Give
+                                Feedback
+                            </button>
+                        </form>
                     </div>
-                    <form onSubmit={handleSubmitFeedback}>
-                        <ReactStars
-                            count={5}
-                            size={24}
-                            a11y={true}
-                            isHalf={false}
-                            value={0}
-                            filledIcon={<i className="fa fa-star"></i>}
-                            activeColor="#ffd700"
-                            color="white"
-                            onChange={startValue => {
-                                setStar(startValue);
-                            }}
-                        />
-                        <textarea
-                            placeholder="Your Comment"
-                            onChange={e => setComment(e.target.value)}
-                        />
-                        <button type="submit">
-                            <i className="fa fa-location-arrow"></i> Give
-                            Feedback
-                        </button>
-                    </form>
-                </div>
+                )}
+
                 <br />
                 <div className="section-title">
                     <h5>Feedbacks</h5>
@@ -181,8 +297,84 @@ export default function Comments() {
                                         {feedback.date}
                                     </span>
                                     <p>{feedback.comment}</p>
-                                    <Link to="#">Report</Link>
-                                    <Link to="#">Reply</Link>
+                                    {isLogin && (
+                                        <>
+                                            <Link
+                                                to="#"
+                                                value={feedback.id}
+                                                onClick={showReportForm}
+                                            >
+                                                Report
+                                            </Link>
+                                            <Link
+                                                to="#"
+                                                value={feedback.id}
+                                                onClick={showReplyForm}
+                                            >
+                                                Reply
+                                            </Link>
+                                        </>
+                                    )}
+                                    {isReplyFormVisible &&
+                                        replyFeedbackId == feedback.id &&
+                                        isLogin && (
+                                            <div className="anime__details__form ">
+                                                <form
+                                                    onSubmit={
+                                                        handleSubmitReplyFeedback
+                                                    }
+                                                >
+                                                    <textarea
+                                                        placeholder="Your Reply"
+                                                        onChange={e =>
+                                                            setReply(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                    <button type="submit">
+                                                        <i className="fa fa-location-arrow"></i>{' '}
+                                                        Give Reply
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        )}
+                                    {isReportFormVisible &&
+                                        reportFeedbackId == feedback.id &&
+                                        isLogin && (
+                                            <div className="anime__details__form ">
+                                                <form
+                                                    onSubmit={
+                                                        handleSubmitReportFeedback
+                                                    }
+                                                >
+                                                    <textarea
+                                                        placeholder={`Report ${
+                                                            accounts.find(
+                                                                account =>
+                                                                    account.id ===
+                                                                        users.find(
+                                                                            user =>
+                                                                                user.id ===
+                                                                                feedback.user_id
+                                                                        )
+                                                                            ?.account_id ??
+                                                                    '0'
+                                                            )?.username
+                                                        }`}
+                                                        onChange={e =>
+                                                            setReport(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                    <button type="submit">
+                                                        <i className="fa fa-location-arrow"></i>{' '}
+                                                        Report
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        )}
                                 </div>
                             </div>
 
@@ -237,8 +429,61 @@ export default function Comments() {
                                                     }
                                                 </h5>
                                                 <p>{feedbackReply.reply}</p>
-                                                <Link to="#">Report</Link>
-                                                <Link to="#">Reply</Link>
+                                                {isLogin && (
+                                                    <>
+                                                        <Link
+                                                            to="#"
+                                                            value={
+                                                                feedbackReply.id
+                                                            }
+                                                            onClick={
+                                                                showReportReplyForm
+                                                            }
+                                                        >
+                                                            Report
+                                                        </Link>
+                                                    </>
+                                                )}
+                                                {isReportReplyFormVisible &&
+                                                    reportFeedbackReplyId ==
+                                                        feedbackReply.id &&
+                                                    isLogin && (
+                                                        <div className="anime__details__form ">
+                                                            <form
+                                                                onSubmit={
+                                                                    handleSubmitReportReplyFeedback
+                                                                }
+                                                            >
+                                                                <textarea
+                                                                    placeholder={`Report ${
+                                                                        accounts.find(
+                                                                            account =>
+                                                                                account.id ===
+                                                                                    users.find(
+                                                                                        user =>
+                                                                                            user.id ===
+                                                                                            feedbackReply.user_id
+                                                                                    )
+                                                                                        ?.account_id ??
+                                                                                '0'
+                                                                        )
+                                                                            ?.username
+                                                                    }`}
+                                                                    onChange={e =>
+                                                                        setReportReply(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        )
+                                                                    }
+                                                                />
+                                                                <button type="submit">
+                                                                    <i className="fa fa-location-arrow"></i>{' '}
+                                                                    Report
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    )}
                                             </div>
                                         </div>
                                     );

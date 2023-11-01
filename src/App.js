@@ -16,6 +16,7 @@ import Seats from './components/user/seats/Seats';
 import BookingDetail from './components/user/booking/BookingDetail';
 import { MyTicket } from './components/user/ticket/MyTicket';
 import Order from './components/user/ticket/Order';
+// import Demo from './components/user/demoSocket/Demo';
 
 function App() {
     const { accountId } = useContext(UserContext);
@@ -81,7 +82,8 @@ function App() {
                         element={<MyTicket />}
                     ></Route>
 
-                    {/* Contact Section */}
+                    {/* Demo Section */}
+                    {/* <Route path="/demo-socket" element={<Demo />}></Route> */}
                 </Routes>
                 <Footer />
             </BrowserRouter>
