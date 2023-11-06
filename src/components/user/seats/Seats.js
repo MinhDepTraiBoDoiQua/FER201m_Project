@@ -247,7 +247,7 @@ function Seats() {
         // Render the seats in React JSX
         return (
             <div className="cinema">
-                <h3 style={{ color: 'white' }}>Client ID: {socketId}</h3>
+                {/* <h3 style={{ color: 'white' }}>Client ID: {socketId}</h3> */}
                 <div className="screen">Screen</div>
                 <div className="seats">
                     <div className="row">
@@ -269,33 +269,53 @@ function Seats() {
 
     const handleProcceedPayment = () => {
         axios
-            .post(`${jsonServer}/orders`, {
-                movie_id: movieId,
-                theater_id: theater.id,
-                date_time: getCurentDateTime(),
-                user_id: userId,
-                status: 'pending',
-            })
+            .get(`${jsonServer}/tickets?showtime_id=${showtimeId}`)
             .then(res => {
-                const orderId = res.data.id;
-                const postRequests = selectedSeats.map(seat => {
-                    return axios.post(`${jsonServer}/tickets`, {
-                        order_id: orderId,
-                        showtime_id: showtimeId,
-                        seat_name: seat,
-                        seat_type: vipSeats.includes(seat) ? 'vip' : 'normal',
-                    });
-                });
+                const seatNames = res.data.map(ticket => ticket.seat_name);
+                let check = true;
+                selectedSeats.forEach(seat => {
+                    if (seatNames.includes(seat)) {
+                        check = false;
+                    }
+                    if (check) {
+                        axios
+                            .post(`${jsonServer}/orders`, {
+                                movie_id: movieId,
+                                theater_id: theater.id,
+                                date_time: getCurentDateTime(),
+                                user_id: userId,
+                                status: 'pending',
+                            })
+                            .then(res => {
+                                const orderId = res.data.id;
+                                const postRequests = selectedSeats.map(seat => {
+                                    return axios.post(`${jsonServer}/tickets`, {
+                                        order_id: orderId,
+                                        showtime_id: showtimeId,
+                                        seat_name: seat,
+                                        seat_type: vipSeats.includes(seat)
+                                            ? 'vip'
+                                            : 'normal',
+                                    });
+                                });
 
-                // Use Promise.all to wait for all requests to complete
-                Promise.all(postRequests)
-                    .then(() => {
-                        alert('Order successfully');
-                        navigate(`/booking-detail/${movieId}/${orderId}`);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+                                // Use Promise.all to wait for all requests to complete
+                                Promise.all(postRequests)
+                                    .then(() => {
+                                        navigate(
+                                            `/booking-detail/${movieId}/${orderId}`
+                                        );
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                            });
+                    } else {
+                        alert(
+                            'Some seats have been bought! Order has been canceled!'
+                        );
+                    }
+                });
             });
     };
 

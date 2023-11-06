@@ -8,7 +8,11 @@ import {
 } from '../constant/Constant';
 
 import Breadcrumb from '../authen/Breadcrumb';
-
+import emailjs from '@emailjs/browser';
+// import QRCode from 'react-qr-code';
+import QRCode from 'qrcode';
+import QRCodeFakePayment from '../demoQRCode/DemoQRCode';
+// import QRCode as QRReactCode from 'react-qr-code';
 // Lấy ngày trong tuần dưới dạng văn bản
 function getDayOfWeek(date) {
     const daysOfWeek = [
@@ -37,11 +41,19 @@ function formatTime(date) {
     return `${hours}:${minutes}`;
 }
 
+// const generateQRCodeDataUrl = (url, size = 200) => {
+//     return <QRCode value={url} size={size} bgColor="white" fgColor="black" />;
+// };
+
 const BookingDetail = () => {
+    const accountID = sessionStorage.getItem('accountId');
     const { movieId, orderId } = useParams();
     const [movie, setMovie] = useState([]);
     const [order, setOrder] = useState([]);
     const [tickets, setTickets] = useState([]);
+    const [showTime, setShowTime] = useState([]);
+    const [cinema, setCinema] = useState([]);
+    const [theater, setTheater] = useState([]);
     useEffect(() => {
         axios.get(`${jsonServer}/movies/${movieId}`).then(res => {
             setMovie(res.data);
@@ -57,6 +69,30 @@ const BookingDetail = () => {
     useEffect(() => {
         axios.get(`${jsonServer}/tickets?order_id=${orderId}`).then(res => {
             setTickets(res.data);
+            const showTimeId = res.data[0].showtime_id;
+            axios
+                .get(`${jsonServer}/showtimes/${showTimeId}`)
+                .then(res => {
+                    setShowTime(res.data);
+                    const cinemaId = res.data.cinema_id;
+                    axios.get(`${jsonServer}/cinemas/${cinemaId}`).then(res => {
+                        setCinema(res.data);
+                        const theaterId = res.data.theater_id;
+                        axios
+                            .get(`${jsonServer}/theaters/${theaterId}`)
+                            .then(res => {
+                                setTheater(res.data);
+                            });
+                    });
+                })
+                .catch(err => console.log(err));
+        });
+    }, [orderId]);
+
+    const [acc, setAcc] = useState({});
+    useEffect(() => {
+        axios.get(`${jsonServer}/accounts/${accountID}`).then(res => {
+            setAcc(res.data);
         });
     }, [orderId]);
 
@@ -80,7 +116,55 @@ const BookingDetail = () => {
     }, '');
 
     const handleFakePayment = () => {
-        axios.patch(`${jsonServer}/orders/${orderId}`, { status: 'paid' });
+        axios
+            .patch(`${jsonServer}/orders/${orderId}`, { status: 'paid' })
+            .then(() => {
+                const showingDate = showTime.start_time.split(' ')[0];
+                const showingStartTime = showTime.start_time.split(' ')[1];
+                const showingEndTime = showTime.end_time.split(' ')[1];
+                let qrCodeUrl = '';
+                QRCode.toDataURL(`http://localhost:3002/order/${orderId}`, {
+                    type: 'png',
+                })
+                    .then(url => {
+                        const emailParams = {
+                            to_email: acc.email,
+                            to_username: acc.username,
+                            order_id: orderId,
+                            movie_name: movie.movie_name,
+                            showing_date: showingDate,
+                            showing_start_time: showingStartTime,
+                            showing_end_time: showingEndTime,
+                            theater_name: theater.theater_name,
+                            location: theater.location,
+                            cinema_name: cinema.cinema_name,
+                            qr_code: `<img src="${url}"/>`,
+                        };
+
+                        emailjs
+                            .send(
+                                'service_wzkilim',
+                                'template_0eowblh',
+                                emailParams,
+                                '2a6cHYK7ypEUbu83L'
+                            )
+                            .then(response => {
+                                alert(
+                                    'Thank you for your order! Please check your email for more details!'
+                                );
+                                window.location.href = '/order';
+                            })
+                            .catch(error => {
+                                console.error('Email send error:', error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error creating QR code:', error);
+                    });
+            })
+            .catch(error => {
+                console.error('Axios request error:', error);
+            });
     };
 
     const numberOfVipSeats = tickets.filter(
@@ -216,19 +300,25 @@ const BookingDetail = () => {
 
                                 <div className="anime__details__title">
                                     <h3>QR CODE IN HERE</h3>
-                                    <Link
-                                        to="/order"
+                                    <QRCodeFakePayment />
+                                    <br />
+                                    <button
+                                        type="button"
                                         className="primary-btn"
                                         onClick={handleFakePayment}
                                     >
                                         FAKE PAYMENT
-                                    </Link>
-                                    <a
-                                        href="login.html"
-                                        className="primary-btn"
+                                    </button>
+                                    <p
+                                        style={{
+                                            color: 'white',
+                                            marginTop: '20px',
+                                        }}
                                     >
-                                        Bank
-                                    </a>
+                                        Payment with content: &lt;Movie
+                                        Name&gt;_&lt;Show
+                                        Date&gt;_&lt;Username&gt;
+                                    </p>
                                 </div>
                             </div>
                         </div>

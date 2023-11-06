@@ -16,6 +16,8 @@ import Seats from './components/user/seats/Seats';
 import BookingDetail from './components/user/booking/BookingDetail';
 import { MyTicket } from './components/user/ticket/MyTicket';
 import Order from './components/user/ticket/Order';
+import QRCodeFakePayment from './components/user/demoQRCode/DemoQRCode';
+
 // import Demo from './components/user/demoSocket/Demo';
 
 function App() {
@@ -84,6 +86,10 @@ function App() {
 
                     {/* Demo Section */}
                     {/* <Route path="/demo-socket" element={<Demo />}></Route> */}
+                    <Route
+                        path="/demo-qr-code"
+                        element={<QRCodeFakePayment />}
+                    ></Route>
                 </Routes>
                 <Footer />
             </BrowserRouter>

@@ -53,6 +53,7 @@ const MyTicket = () => {
 
     const [tickets, setTickets] = useState([]);
     const [showtime, setShowtime] = useState([]);
+    const [cinema, setCinema] = useState([]);
     useEffect(() => {
         fetch(jsonServer + '/tickets?order_id=' + orderId)
             .then(res => res.json())
@@ -61,7 +62,13 @@ const MyTicket = () => {
                 fetch(jsonServer + '/showtimes/' + data[0].showtime_id)
                     .then(res => res.json())
                     .then(data => {
+                        const cinemaId = data.cinema_id;
                         setShowtime(data);
+                        fetch(jsonServer + '/cinemas/' + cinemaId)
+                            .then(res => res.json())
+                            .then(data => {
+                                setCinema(data);
+                            });
                     });
             });
     }, [orderId]);
@@ -141,7 +148,10 @@ const MyTicket = () => {
                                                 color: 'white',
                                             }}
                                         >
-                                            <div className="blog__item__text">
+                                            <div
+                                                className="blog__item__text"
+                                                style={{ button: 'auto' }}
+                                            >
                                                 <p>
                                                     <span className="icon_calendar"></span>{' '}
                                                     {formattedDate}
@@ -171,6 +181,12 @@ const MyTicket = () => {
                                                 <div className="anime__details__title">
                                                     <span>Time</span>
                                                     <h3>{formattedTime}</h3>
+                                                </div>
+                                                <div className="anime__details__title">
+                                                    <span>Cinema Name</span>
+                                                    <h3>
+                                                        {cinema.cinema_name}
+                                                    </h3>
                                                 </div>
                                                 <div className="anime__details__title">
                                                     <span>Seat</span>
