@@ -31,25 +31,35 @@ import {
     MovieTimeDetail,
     MovieTimeManage,
 } from './components/admin/movieTime/MovieTime';
+import { useEffect, useState } from 'react';
+
+import {
+    MovieManagerCreate,
+    UserEdit,
+    UserList,
+} from './components/admin/users/UserList';
 
 function App() {
-    let checkLogin = false;
-    if (sessionStorage.getItem('accountId') !== null) {
-        checkLogin = true;
-    } else {
-        checkLogin = false;
-    }
+    const [isLoggedin, setIsLoggedin] = useState(false);
+    useEffect(() => {
+        if (sessionStorage.getItem('accountId') !== null) {
+            setIsLoggedin(true);
+        } else {
+            setIsLoggedin(false);
+        }
+    }, [sessionStorage.getItem('accountId')]);
+
     // const isPathLogin = window.location.pathname === '/login';
 
     return (
         <div id="page-top">
             <BrowserRouter>
                 <div id="wrapper">
-                    {checkLogin && <Sidebar />}
+                    {isLoggedin && <Sidebar />}
 
                     <div id="content-wrapper" className="d-flex flex-column">
                         <div id="content">
-                            {checkLogin && <Topbar />}
+                            {isLoggedin && <Topbar />}
                             <Routes>
                                 {/* Authen */}
                                 <Route path="/login" element={<Login />} />
@@ -141,9 +151,23 @@ function App() {
                                     path="/show-times/detail/:id/create"
                                     element={<MovieTimeCreate />}
                                 />
+
+                                {/* User List */}
+                                <Route
+                                    path="/account-manage"
+                                    element={<UserList />}
+                                />
+                                <Route
+                                    path="/account-manage/create-movie-manager"
+                                    element={<MovieManagerCreate />}
+                                />
+                                <Route
+                                    path="/account-manage/details/:id"
+                                    element={<UserEdit />}
+                                />
                             </Routes>
                         </div>
-                        {checkLogin && <Footer />}
+                        {isLoggedin && <Footer />}
                     </div>
                 </div>
             </BrowserRouter>

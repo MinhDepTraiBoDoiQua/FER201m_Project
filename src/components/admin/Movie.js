@@ -14,6 +14,7 @@ import Loading from './template/Loading';
 import CustomEditor from './template/SunEditor';
 import UserContext from './authen/UserContext';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MovieManage = () => {
     const { checkLogin } = useContext(UserContext);
@@ -122,6 +123,7 @@ const MovieManage = () => {
 const MovieCreate = () => {
     const { checkLogin } = useContext(UserContext);
     checkLogin();
+    const navigate = useNavigate();
     const [img, setImg] = useState(null);
     const [imgBanner, setImgBanner] = useState(null);
     const [movie, setMovie] = useState({
@@ -205,7 +207,7 @@ const MovieCreate = () => {
                     .then(json => {
                         console.log(json);
                         setDataLoaded(true);
-                        window.location.href = '/movie-manage';
+                        navigate('/movie-manage');
                     });
             } catch (error) {
                 window.alert('Error uploading banner image:', error);
@@ -416,6 +418,7 @@ const MovieEdit = () => {
     const { checkLogin } = useContext(UserContext);
     checkLogin();
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [movie, setMovie] = useState({
         movie_name: '',
@@ -518,7 +521,7 @@ const MovieEdit = () => {
                 .then(response => response.json())
                 .then(json => {
                     setDataLoaded(true);
-                    window.location.href = `/movie-manage`;
+                    navigate('/movie-manage');
                 });
         } catch (error) {
             setDataLoaded(true);
@@ -743,26 +746,25 @@ const MovieDelete = () => {
     const { checkLogin } = useContext(UserContext);
     checkLogin();
     const { id } = useParams();
-    useEffect(() => {
-        if (window.confirm('Are you sure you want to delete this movie?')) {
-            fetch(`http://localhost:3000/movies/${id}`, {
-                method: 'DELETE',
+
+    if (window.confirm('Are you sure you want to delete this movie?')) {
+        fetch(`http://localhost:3000/movies/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    window.alert('Movie deleted successfully.');
+                    window.location.href = '/movie-manage';
+                }
             })
-                .then(response => {
-                    if (response.ok) {
-                        window.alert('Movie deleted successfully.');
-                        window.location.href = '/movie-manage';
-                    }
-                })
-                .catch(error => {
-                    window.alert(
-                        'Failed to delete the movie. Please try again later.'
-                    );
-                });
-        } else {
-            window.location.href = '/movie-manage';
-        }
-    }, [id]);
+            .catch(error => {
+                window.alert(
+                    'Failed to delete the movie. Please try again later.'
+                );
+            });
+    } else {
+        window.location.href = '/movie-manage';
+    }
 };
 
 export { MovieManage, MovieCreate, MovieEdit, MovieDelete };

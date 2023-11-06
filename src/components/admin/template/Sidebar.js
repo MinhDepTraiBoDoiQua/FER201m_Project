@@ -91,9 +91,9 @@ export default function Sidebar() {
                         </Link>
                     </li>
                     <li as="li" className="nav-item">
-                        <Link to="/user-manage" className="nav-link">
+                        <Link to="/account-manage" className="nav-link">
                             <i className="fas fa-fw fa-solid fa-users"></i>
-                            <span> User</span>
+                            <span> Account</span>
                         </Link>
                     </li>
                     <li as="li" className="nav-item">

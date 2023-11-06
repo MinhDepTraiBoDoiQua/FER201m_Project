@@ -88,7 +88,6 @@ export default function Topbar() {
                 {/* Nav Item - User Information */}
                 <li className="nav-item dropdown no-arrow">
                     <Link
-                        to="/"
                         className="nav-link dropdown-toggle"
                         id="userDropdown"
                         role="button"

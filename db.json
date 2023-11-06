@@ -37,7 +37,7 @@
       "id": "4",
       "firstName": "Pham",
       "lastName": "Minh",
-      "email": "minh@gmail.com",
+      "email": "minhht.1.2.vn@gmail.com",
       "username": "minh",
       "password": "minh",
       "avatar_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Favatar%2F3c02b893-65d7-44eb-9345-047f8d1814f3?alt=media&token=fee8a795-6ea0-4dbd-adbc-491fa1d1589e",
@@ -54,6 +54,27 @@
       "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
       "status": "1",
       "user_type": "3"
+    },
+    {
+      "firstName": "Demo",
+      "lastName": "Register",
+      "email": "minhtest@gmail.com",
+      "username": "MinhNewAcc",
+      "password": "123",
+      "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
+      "status": "1",
+      "user_type": "3",
+      "id": "GoH3Xqw"
+    },
+    {
+      "firstName": "MovManDemo",
+      "lastName": "MovManDemo",
+      "email": "ticketbookingprojectfer201m@gmail.com",
+      "username": "movmandemo",
+      "avatar_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Faccounts%2F125b7761-13a4-455a-9cf0-f565e0983504?alt=media&token=4711e7c7-c52b-4264-85a6-e6b296dfbf81",
+      "status": "1",
+      "user_type": "2",
+      "id": "LPsWTvN"
     }
   ],
   "admins": [
@@ -66,6 +87,10 @@
     {
       "id": "1",
       "account_id": "2"
+    },
+    {
+      "account_id": "LPsWTvN",
+      "id": "rgVDlBw"
     }
   ],
   "users": [
@@ -80,6 +105,10 @@
     {
       "id": "3",
       "account_id": "5"
+    },
+    {
+      "account_id": "GoH3Xqw",
+      "id": "kxn4C9z"
     }
   ],
   "movies": [
@@ -94,7 +123,7 @@
       "duration": "181",
       "start_date": "2019-04-26",
       "end_date": "2019-07-02",
-      "status": "1"
+      "status": "0"
     },
     {
       "id": "2",
@@ -404,182 +433,208 @@
       "movie_id": "ParIkpm",
       "start_time": "2023-10-21 10:00:00",
       "end_time": "2023-10-21 12:00:00",
-      "cinema_id": "1"
+      "cinema_id": "1",
+      "status": "1"
     },
     {
       "id": "2",
       "movie_id": "ParIkpm",
       "start_time": "2023-10-21 12:00:00",
       "end_time": "2023-10-21 14:00:00",
-      "cinema_id": "1"
+      "cinema_id": "1",
+      "status": "1"
     },
     {
       "id": "3",
       "movie_id": "ParIkpm",
       "start_time": "2023-10-21 14:00:00",
       "end_time": "2023-10-21 16:00:00",
-      "cinema_id": "1"
+      "cinema_id": "1",
+      "status": "1"
     },
     {
       "id": "4",
       "movie_id": "ParIkpm",
       "start_time": "2023-10-21 16:00:00",
       "end_time": "2023-10-21 18:00:00",
-      "cinema_id": "1"
+      "cinema_id": "1",
+      "status": "1"
     },
     {
       "id": "5",
       "movie_id": "ParIkpm",
       "start_time": "2023-10-21 18:00:00",
       "end_time": "2023-10-21 20:00:00",
-      "cinema_id": "1"
+      "cinema_id": "1",
+      "status": "1"
     },
     {
       "id": "6",
       "movie_id": "eBXWMg0",
       "start_time": "2023-10-21 20:00:00",
       "end_time": "2023-10-21 22:00:00",
-      "cinema_id": "1"
+      "cinema_id": "1",
+      "status": "1"
     },
     {
       "id": "7",
       "movie_id": "eBXWMg0",
       "start_time": "2023-10-22 10:00:00",
       "end_time": "2023-10-22 12:00:00",
-      "cinema_id": "2"
+      "cinema_id": "2",
+      "status": "1"
     },
     {
       "id": "8",
       "movie_id": "eBXWMg0",
       "start_time": "2023-10-22 12:00:00",
       "end_time": "2023-10-22 14:00:00",
-      "cinema_id": "2"
+      "cinema_id": "2",
+      "status": "1"
     },
     {
       "id": "9",
       "movie_id": "eBXWMg0",
       "start_time": "2023-10-22 14:00:00",
       "end_time": "2023-10-22 16:00:00",
-      "cinema_id": "2"
+      "cinema_id": "2",
+      "status": "1"
     },
     {
       "id": "10",
       "movie_id": "Lf8_GjI",
       "start_time": "2023-10-21 10:00:00",
       "end_time": "2023-10-21 12:00:00",
-      "cinema_id": "3"
+      "cinema_id": "3",
+      "status": "1"
     },
     {
       "id": "11",
       "movie_id": "Lf8_GjI",
       "start_time": "2023-10-21 12:00:00",
       "end_time": "2023-10-21 14:00:00",
-      "cinema_id": "3"
+      "cinema_id": "3",
+      "status": "1"
     },
     {
       "id": "12",
       "movie_id": "Lf8_GjI",
       "start_time": "2023-10-21 14:00:00",
       "end_time": "2023-10-21 16:00:00",
-      "cinema_id": "3"
+      "cinema_id": "3",
+      "status": "1"
     },
     {
       "id": "13",
       "movie_id": "Lf8_GjI",
       "start_time": "2023-10-21 16:00:00",
       "end_time": "2023-10-21 18:00:00",
-      "cinema_id": "3"
+      "cinema_id": "3",
+      "status": "1"
     },
     {
       "id": "14",
       "movie_id": "Lf8_GjI",
       "start_time": "2023-10-21 18:00:00",
       "end_time": "2023-10-21 20:00:00",
-      "cinema_id": "3"
+      "cinema_id": "3",
+      "status": "1"
     },
     {
       "id": "15",
       "movie_id": "CGEocnm",
       "start_time": "2023-10-21 20:00:00",
       "end_time": "2023-10-21 22:00:00",
-      "cinema_id": "4"
+      "cinema_id": "4",
+      "status": "1"
     },
     {
       "movie_id": "xPSh6mg",
       "cinema_id": "4",
       "start_time": "2023-10-28 21:36:00",
       "end_time": "2023-10-28 23:36:00",
-      "id": "gilh2sC"
+      "id": "gilh2sC",
+      "status": "1"
     },
     {
       "movie_id": "c5xrrLl",
       "cinema_id": "5",
       "start_time": "2023-11-03 16:40:00",
       "end_time": "2023-11-03 16:41:00",
-      "id": "zVsk407"
+      "id": "zVsk407",
+      "status": "1"
     },
     {
       "movie_id": "c5xrrLl",
       "cinema_id": "1",
       "start_time": "2023-11-04 18:54:00",
       "end_time": "2023-11-04 21:54:00",
-      "id": "tpVK-au"
+      "id": "tpVK-au",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "8",
       "start_time": "2023-11-08 17:55:00",
       "end_time": "2023-11-08 19:55:00",
-      "id": "tCEMWr3"
+      "id": "tCEMWr3",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "2",
       "start_time": "2023-10-28 19:58:00",
       "end_time": "2023-10-28 22:58:00",
-      "id": "s3VPPil"
+      "id": "s3VPPil",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "3",
       "start_time": "2023-10-29 19:59:00",
       "end_time": "2023-10-29 22:59:00",
-      "id": "sMc1A6-"
+      "id": "sMc1A6-",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "7",
       "start_time": "2023-10-30 18:00:00",
       "end_time": "2023-10-30 20:00:00",
-      "id": "sSwmZES"
+      "id": "sSwmZES",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "1",
       "start_time": "2023-11-01 20:01:00",
       "end_time": "2023-11-01 22:01:00",
-      "id": "HXoIXEH"
+      "id": "HXoIXEH",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "8",
       "start_time": "2023-10-31 20:03:00",
       "end_time": "2023-10-31 23:03:00",
-      "id": "HY023Fy"
+      "id": "HY023Fy",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "1",
       "start_time": "2023-11-10 20:04:00",
       "end_time": "2023-11-10 22:04:00",
-      "id": "pMPMjYP"
+      "id": "pMPMjYP",
+      "status": "1"
     },
     {
       "movie_id": "eBXWMg0",
       "cinema_id": "6",
       "start_time": "2023-11-09 20:05:00",
       "end_time": "2023-11-09 23:05:00",
-      "id": "LyhVJGJ"
+      "id": "LyhVJGJ",
+      "status": "1"
     }
   ],
   "tickets": [
@@ -764,6 +819,83 @@
       "seat_name": "E8",
       "seat_type": "normal",
       "id": "Y6Y8IOu"
+    },
+    {
+      "order_id": "drX3er6",
+      "showtime_id": "tpVK-au",
+      "seat_name": "B7",
+      "seat_type": "vip",
+      "id": "k6rP2aj"
+    },
+    {
+      "order_id": "drX3er6",
+      "showtime_id": "tpVK-au",
+      "seat_name": "B8",
+      "seat_type": "normal",
+      "id": "2SgMQlb"
+    },
+    {
+      "order_id": "V6gE-X8",
+      "showtime_id": "HXoIXEH",
+      "seat_name": "B3",
+      "seat_type": "normal",
+      "id": "gpcM0e3"
+    },
+    {
+      "order_id": "V6gE-X8",
+      "showtime_id": "HXoIXEH",
+      "seat_name": "B4",
+      "seat_type": "vip",
+      "id": "qHMbQNz"
+    },
+    {
+      "order_id": "SI29ikz",
+      "showtime_id": "pMPMjYP",
+      "seat_name": "A1",
+      "seat_type": "normal",
+      "id": "S5F_zFL"
+    },
+    {
+      "order_id": "4d0NfWL",
+      "showtime_id": "pMPMjYP",
+      "seat_name": "A3",
+      "seat_type": "normal",
+      "id": "OvdOT4O"
+    },
+    {
+      "order_id": "4d0NfWL",
+      "showtime_id": "pMPMjYP",
+      "seat_name": "A2",
+      "seat_type": "normal",
+      "id": "x7ZEjhd"
+    },
+    {
+      "order_id": "SPjnhuq",
+      "showtime_id": "pMPMjYP",
+      "seat_name": "B4",
+      "seat_type": "vip",
+      "id": "wJIXvfP"
+    },
+    {
+      "order_id": "Dkb-KUQ",
+      "showtime_id": "tCEMWr3",
+      "seat_name": "B2",
+      "seat_type": "normal",
+      "id": "IlGf92_"
+    },
+    {
+      "order_id": "YtReBNo",
+      "showtime_id": "pMPMjYP",
+      "seat_name": "C12",
+      "seat_type": "normal",
+      "id": "Vh0NZtc"
+    },
+    {
+      "order_id": "BXOVJiO",
+      "showtime_id": "pMPMjYP",
+      "seat_name": "E1",
+      "seat_type": "normal",
+      "id": "QzIw-Wa"
     }
   ],
   "orders": [
@@ -838,6 +970,62 @@
       "user_id": "2",
       "status": "pending",
       "id": "FFHK8Zy"
+    },
+    {
+      "movie_id": "c5xrrLl",
+      "theater_id": "1",
+      "date_time": "2023-10-29 20:06:41",
+      "user_id": "2",
+      "status": "pending",
+      "id": "drX3er6"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "1",
+      "date_time": "2023-10-30 10:06:06",
+      "user_id": "2",
+      "status": "paid",
+      "id": "V6gE-X8"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "1",
+      "date_time": "2023-11-06 18:04:50",
+      "user_id": "1",
+      "status": "paid",
+      "id": "SI29ikz"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "1",
+      "date_time": "2023-11-06 18:25:38",
+      "user_id": "2",
+      "status": "paid",
+      "id": "4d0NfWL"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "1",
+      "date_time": "2023-11-06 18:34:45",
+      "user_id": "2",
+      "status": "paid",
+      "id": "SPjnhuq"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "ORZAKU7",
+      "date_time": "2023-11-06 18:38:40",
+      "user_id": "2",
+      "status": "paid",
+      "id": "Dkb-KUQ"
+    },
+    {
+      "movie_id": "eBXWMg0",
+      "theater_id": "1",
+      "date_time": "2023-11-06 23:19:15",
+      "user_id": "2",
+      "status": "pending",
+      "id": "BXOVJiO"
     }
   ],
   "tempSeats": [],
@@ -1110,6 +1298,77 @@
       "reply": "Glad you enjoyed it!",
       "date": "2022-01-04",
       "status": "1"
+    },
+    {
+      "feedback_id": "10",
+      "user_id": "2",
+      "reply": "reply rohit",
+      "date": "10/31/2023, 10:38:09 PM",
+      "id": "sNXtO-p",
+      "status": "1"
+    },
+    {
+      "feedback_id": "6",
+      "user_id": "2",
+      "reply": "dong y",
+      "date": "10/31/2023, 10:55:38 PM",
+      "id": "I8tz05k",
+      "status": "1"
+    },
+    {
+      "feedback_id": "10",
+      "user_id": "2",
+      "reply": "reply 2",
+      "date": "10/31/2023, 10:55:49 PM",
+      "id": "u27tdBo",
+      "status": "1"
+    },
+    {
+      "feedback_id": "2",
+      "user_id": "2",
+      "reply": "Phim hay ae nhe",
+      "date": "11/1/2023, 4:11:02 PM",
+      "status": "1",
+      "id": "BqoQlrE"
+    }
+  ],
+  "reportFeedbacks": [
+    {
+      "id": "1",
+      "feedback_id": "1",
+      "user_id": "2",
+      "report": "Inappropriate content",
+      "date": "2022-01-02"
+    },
+    {
+      "feedback_id": "2",
+      "user_id": "2",
+      "report": "spam cmt",
+      "date": "11/1/2023, 4:11:28 PM",
+      "id": "H261unL"
+    },
+    {
+      "feedback_id": "10",
+      "user_id": "2",
+      "report": "not correct feedback",
+      "date": "11/1/2023, 4:12:40 PM",
+      "id": "Na51nY_"
+    }
+  ],
+  "reportReplyFeedbacks": [
+    {
+      "id": "1",
+      "feedback_reply_id": "1",
+      "user_id": "2",
+      "report": "Inappropriate content",
+      "date": "2022-01-02"
+    },
+    {
+      "feedback_id": "sNXtO-p",
+      "user_id": "2",
+      "report": "Test report reply feedback",
+      "date": "11/1/2023, 4:17:12 PM",
+      "id": "PA08WOD"
     }
   ],
   "adsBanner": [

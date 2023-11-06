@@ -27,7 +27,6 @@ const Login = () => {
                 } else {
                     setErrorMessage('');
                     login(account.email, account.id);
-                    alert('Login success');
                     window.location.href = '/';
                 }
             })

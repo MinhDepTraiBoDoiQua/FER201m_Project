@@ -4,8 +4,6 @@ import { jsonServer } from '../constant/Constant';
 import UserContext from '../authen/UserContext';
 import Loading from '../template/Loading';
 import { Link } from 'react-router-dom';
-import { fontSize } from 'suneditor/src/plugins';
-import useScript from '../../../UseScript';
 import { useNavigate } from 'react-router-dom';
 const MovieTimeManage = () => {
     const [movies, setMovies] = useState([]);
@@ -88,6 +86,7 @@ const MovieTimeDetail = () => {
             });
     }, []);
 
+    // useScript(dataLoaded, 'admin/js/demo/datatables-demo.js');
     // useScript(dataLoaded, 'admin/js/demo/datatables-demo.js');
     if (!dataLoaded) {
         return <Loading />;
@@ -291,7 +290,10 @@ const MovieTimeCreate = () => {
         if (startTime !== '' && endTime !== '' && theaterId !== '0') {
             let isError = false;
             showTimes.map(showTime => {
-                if (showTime.cinema_id === cinemaId) {
+                if (
+                    showTime.cinema_id === cinemaId &&
+                    showTime.status === '1'
+                ) {
                     const showTimeStartTime = new Date(showTime.start_time);
                     const showTimeEndTime = new Date(showTime.end_time);
                     const inputStartTime = new Date(startTime);
@@ -507,5 +509,7 @@ const MovieTimeCreate = () => {
         </div>
     );
 };
+
+const MovieTimeEdit = () => {};
 
 export { MovieTimeManage, MovieTimeDetail, MovieTimeCreate };
