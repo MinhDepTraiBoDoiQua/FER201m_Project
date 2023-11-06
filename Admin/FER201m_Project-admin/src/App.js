@@ -31,7 +31,7 @@ import {
     MovieTimeDetail,
     MovieTimeManage,
 } from './components/admin/movieTime/MovieTime';
-import { UserList } from './components/admin/users/UserList';
+import { UserCreate, UserEdit, UserList } from './components/admin/users/UserList';
 
 function App() {
     let checkLogin = false;
@@ -115,6 +115,14 @@ function App() {
                                 <Route
                                     path="/user-manage"
                                     element={<UserList />}
+                                />
+                                <Route
+                                    path="/user-manage/create"
+                                    element={<UserCreate />}
+                                />
+                                <Route
+                                    path="/user-manage/details/:id"
+                                    element={<UserEdit />}
                                 />
 
                                 {/* Ads Banner */}

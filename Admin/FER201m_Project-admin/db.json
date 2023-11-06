@@ -54,6 +54,16 @@
       "avatar_image_path": "https://herrmans.eu/wp-content/uploads/2019/01/765-default-avatar.png",
       "status": "1",
       "user_type": "3"
+    },
+    {
+      "firstName": "Duc",
+      "lastName": "Trung",
+      "email": "ductrung@gmail.com",
+      "username": "ductrung23",
+      "avatar_image_path": "https://firebasestorage.googleapis.com/v0/b/fer201mprojectimagedb.appspot.com/o/uploads%2Faccounts%2F199718af-3846-4f70-803a-d367c0ee2c86?alt=media&token=14b46970-92f5-471a-8c72-56a6e4ba3fdb",
+      "status": "1",
+      "user_type": "3",
+      "id": "cEnjdJw"
     }
   ],
   "admins": [
