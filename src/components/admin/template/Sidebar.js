@@ -97,15 +97,16 @@ export default function Sidebar() {
                         </Link>
                     </li>
                     <li as="li" className="nav-item">
-                        <Link to="/order-manage" className="nav-link">
-                            <i className="fas fa-fw fa-solid fa-tag"></i>
-                            <span> Order</span>
+                        <Link to="/feedback-manage" className="nav-link">
+                            {/* <i class="fa-regular fa-comment"></i> */}
+                            <i className="fas fa-fw fa-solid fa-comment"></i>
+                            <span> Feedback</span>
                         </Link>
                     </li>
                     <li as="li" className="nav-item">
-                        <Link to="/report-manage" className="nav-link">
-                            <i className="fas fa-fw fa-tachometer-alt"></i>
-                            <span> Report</span>
+                        <Link to="/order-manage" className="nav-link">
+                            <i className="fas fa-fw fa-solid fa-tag"></i>
+                            <span> Order</span>
                         </Link>
                     </li>
                 </>

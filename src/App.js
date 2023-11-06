@@ -38,6 +38,7 @@ import {
     UserEdit,
     UserList,
 } from './components/admin/users/UserList';
+import OrderManage from './components/admin/order/Order';
 
 function App() {
     const [isLoggedin, setIsLoggedin] = useState(false);
@@ -161,9 +162,15 @@ function App() {
                                     path="/account-manage/create-movie-manager"
                                     element={<MovieManagerCreate />}
                                 />
-                                <Route
+                                {/* <Route
                                     path="/account-manage/details/:id"
                                     element={<UserEdit />}
+                                /> */}
+
+                                {/* Order */}
+                                <Route
+                                    path="/order-manage"
+                                    element={<OrderManage />}
                                 />
                             </Routes>
                         </div>
