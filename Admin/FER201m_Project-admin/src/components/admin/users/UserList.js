@@ -14,6 +14,23 @@ import {
 import { storage } from '../../../firebaseImage/Config';
 import { v4 } from 'uuid';
 
+const handleChange = (id, newStatus) => {
+    const updatedStatus = newStatus === '0' ? '1' : '0';
+    const buttonText = newStatus === '0' ? 'Ban' : 'Unban';
+    fetch('http://localhost:3000/accounts/' + id, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            status: updatedStatus
+        })
+    })
+    window.location.reload()
+    const buttons = document.querySelectorAll(`[data-id="${id}"]`);
+    buttons.forEach(button => {
+        button.innerText = buttonText;
+    });
+}
+
 const UserList = () => {
     const { checkLogin } = useContext(UserContext);
     checkLogin();
@@ -24,7 +41,7 @@ const UserList = () => {
         fetch('http://localhost:3000/accounts')
             .then(res => res.json())
             .then(data => {
-                const userAccounts = data.filter(account => account.user_type == 3)
+                const userAccounts = data.filter(account => account.user_type === "3")
                 setAccounts(userAccounts);
                 setDataLoaded(true);
             });
@@ -87,7 +104,9 @@ const UserList = () => {
                                                         : 'Inactive'}
                                                 </td>
                                                 <td>
-                                                    {ac.status === '1' ? 'Ban' : 'Unban'}
+                                                    <button className='btn btn-danger' onClick={() => handleChange(ac.id, ac.status)} data-id={ac.id}>
+                                                        {ac.status === '0' ? 'Unban' : 'Ban'}
+                                                    </button>
                                                     {' '}
                                                     |{' '}
                                                     <Link
