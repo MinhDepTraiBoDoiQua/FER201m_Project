@@ -39,6 +39,12 @@ import {
     UserList,
 } from './components/admin/users/UserList';
 import OrderManage from './components/admin/order/Order';
+import {
+    FeedbackManage,
+    FeedbackReply,
+    FeedbackReplyReport,
+    ReportFeedbackManage,
+} from './components/admin/feedback/Feedback';
 
 function App() {
     const [isLoggedin, setIsLoggedin] = useState(false);
@@ -171,6 +177,24 @@ function App() {
                                 <Route
                                     path="/order-manage"
                                     element={<OrderManage />}
+                                />
+
+                                {/* Feedback */}
+                                <Route
+                                    path="/feedback-manage"
+                                    element={<FeedbackManage />}
+                                />
+                                <Route
+                                    path="/feedback-manage/show-report/:id"
+                                    element={<ReportFeedbackManage />}
+                                />
+                                <Route
+                                    path="/feedback-manage/detail/:id"
+                                    element={<FeedbackReply />}
+                                />
+                                <Route
+                                    path="/feedback-manage/detail/show-report/:id"
+                                    element={<FeedbackReplyReport />}
                                 />
                             </Routes>
                         </div>

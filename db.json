@@ -983,6 +983,27 @@
       "seat_name": "B3",
       "seat_type": "normal",
       "id": "cDR5Rxb"
+    },
+    {
+      "order_id": "3zZAEiv",
+      "showtime_id": "W8HLg7n",
+      "seat_name": "C4",
+      "seat_type": "vip",
+      "id": "08o4U14"
+    },
+    {
+      "order_id": "eDInhI1",
+      "showtime_id": "W8HLg7n",
+      "seat_name": "C2",
+      "seat_type": "normal",
+      "id": "gBtA_Wk"
+    },
+    {
+      "order_id": "ZHmskru",
+      "showtime_id": "W8HLg7n",
+      "seat_name": "D8",
+      "seat_type": "normal",
+      "id": "htbPiWh"
     }
   ],
   "orders": [
@@ -1121,6 +1142,30 @@
       "user_id": "2",
       "status": "paid",
       "id": "SMMfPVf"
+    },
+    {
+      "movie_id": "75FxkyK",
+      "theater_id": "1",
+      "date_time": "2023-11-07 10:27:07",
+      "user_id": "2",
+      "status": "pending",
+      "id": "3zZAEiv"
+    },
+    {
+      "movie_id": "75FxkyK",
+      "theater_id": "1",
+      "date_time": "2023-11-07 10:27:56",
+      "user_id": "2",
+      "status": "paid",
+      "id": "eDInhI1"
+    },
+    {
+      "movie_id": "75FxkyK",
+      "theater_id": "1",
+      "date_time": "2023-11-07 10:43:24",
+      "user_id": "2",
+      "status": "paid",
+      "id": "ZHmskru"
     }
   ],
   "tempSeats": [],
@@ -1141,7 +1186,7 @@
       "rating": "4",
       "comment": "Enjoyed the storyline.",
       "date": "2022-01-02",
-      "status": "1"
+      "status": true
     },
     {
       "id": "3",
@@ -1168,7 +1213,7 @@
       "rating": "4",
       "comment": "Loved the cinematography.",
       "date": "2022-01-05",
-      "status": "1"
+      "status": true
     },
     {
       "id": "6",
@@ -1367,6 +1412,15 @@
       "date": "10/29/2023, 1:02:59 AM",
       "status": "1",
       "id": "DBpnDVf"
+    },
+    {
+      "movie_id": "QkcLRmB",
+      "user_id": "2",
+      "rating": "4",
+      "comment": "Khá ổn",
+      "date": "11/9/2023, 10:51:57 PM",
+      "status": "1",
+      "id": "BiI8_A_"
     }
   ],
   "feedbacksReply": [
@@ -1423,8 +1477,16 @@
       "user_id": "2",
       "reply": "Phim hay ae nhe",
       "date": "11/1/2023, 4:11:02 PM",
-      "status": "1",
+      "status": true,
       "id": "BqoQlrE"
+    },
+    {
+      "feedback_id": "BiI8_A_",
+      "user_id": "2",
+      "reply": "Test Reply",
+      "date": "11/10/2023, 12:16:10 AM",
+      "status": "1",
+      "id": "YEPI2L6"
     }
   ],
   "reportFeedbacks": [
@@ -1464,6 +1526,20 @@
       "report": "Test report reply feedback",
       "date": "11/1/2023, 4:17:12 PM",
       "id": "PA08WOD"
+    },
+    {
+      "feedback_id": "YEPI2L6",
+      "user_id": "2",
+      "report": "Test report",
+      "date": "11/10/2023, 12:16:22 AM",
+      "id": "-9AjESu"
+    },
+    {
+      "feedback_id": "YEPI2L6",
+      "user_id": "2",
+      "report": "Tét report",
+      "date": "11/10/2023, 12:17:48 AM",
+      "id": "4rMXi6p"
     }
   ],
   "adsBanner": [
